@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.louis</groupId>
-	<artifactId>kitty-admin</artifactId>
+	<artifactId>kitty-common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>kitty-admin</name>
+	<name>kitty-common</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -24,35 +24,6 @@
 		<java.version>1.8</java.version>
 		<mybatis.spring.version>1.3.2</mybatis.spring.version>
 	</properties>
-
-	<dependencies>
-		<!-- spring boot -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<!-- mybatis -->
-		<dependency>
-		    <groupId>org.mybatis.spring.boot</groupId>
-		    <artifactId>mybatis-spring-boot-starter</artifactId>
-		    <version>${mybatis.spring.version}</version>
-		</dependency>
-		<!-- mysql -->
-		<dependency>
-	        <groupId>mysql</groupId>
-	        <artifactId>mysql-connector-java</artifactId>
-	    </dependency>
-		<dependency>
-			<groupId>com.louis</groupId>
-			<artifactId>kitty-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
 	
 <!-- 	<build> -->
 <!-- 		<plugins> -->
@@ -62,5 +33,4 @@
 <!-- 			</plugin> -->
 <!-- 		</plugins> -->
 <!-- 	</build> -->
-
 </project>

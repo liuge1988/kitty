@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.louis</groupId>
-	<artifactId>kitty-admin</artifactId>
+	<artifactId>kitty-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>kitty-admin</name>
+	<name>kitty-boot</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -37,16 +37,12 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- mybatis -->
-		<dependency>
-		    <groupId>org.mybatis.spring.boot</groupId>
-		    <artifactId>mybatis-spring-boot-starter</artifactId>
-		    <version>${mybatis.spring.version}</version>
-		</dependency>
 		<!-- mysql -->
 		<dependency>
-	        <groupId>mysql</groupId>
-	        <artifactId>mysql-connector-java</artifactId>
-	    </dependency>
+			<groupId>com.louis</groupId>
+			<artifactId>kitty-admin</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 		<dependency>
 			<groupId>com.louis</groupId>
 			<artifactId>kitty-common</artifactId>
@@ -54,13 +50,30 @@
 		</dependency>
 	</dependencies>
 	
-<!-- 	<build> -->
-<!-- 		<plugins> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.springframework.boot</groupId> -->
-<!-- 				<artifactId>spring-boot-maven-plugin</artifactId> -->
-<!-- 			</plugin> -->
-<!-- 		</plugins> -->
-<!-- 	</build> -->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<!-- 打包时拷贝MyBatis的映射文件 -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/sqlmap/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>  
+                <directory>src/main/resources</directory>  
+                    <includes> 
+                    	<include>**/*.*</include>  
+                    </includes> 
+                    <filtering>true</filtering>  
+            </resource> 
+		</resources>
+	</build>
 
 </project>

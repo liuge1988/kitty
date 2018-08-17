@@ -1,4 +1,4 @@
-package com.louis.kitty.admin.config;
+package com.louis.kitty.boot.config;
 
 import javax.sql.DataSource;
 
