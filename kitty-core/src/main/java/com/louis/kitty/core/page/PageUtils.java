@@ -1,4 +1,4 @@
-package com.louis.kitty.admin.page;
+package com.louis.kitty.core.page;
 
 import com.github.pagehelper.PageInfo;
 

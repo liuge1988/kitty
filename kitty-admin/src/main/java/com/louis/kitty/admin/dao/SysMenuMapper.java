@@ -21,5 +21,5 @@ public interface SysMenuMapper {
      * 分页查询
      * @return
      */
-	List<SysMenu> selectPage();
+	List<SysMenu> findPage();
 }

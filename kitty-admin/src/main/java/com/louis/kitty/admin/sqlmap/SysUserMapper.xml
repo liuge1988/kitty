@@ -139,7 +139,12 @@
     where user_id = #{userId,jdbcType=BIGINT}
   </update>
   
-  <select id="selectAll" resultMap="BaseResultMap">
+  <select id="findAll" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user
+  </select>
+  <select id="findPage" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_user

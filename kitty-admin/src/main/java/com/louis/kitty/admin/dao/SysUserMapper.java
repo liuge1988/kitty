@@ -21,5 +21,11 @@ public interface SysUserMapper {
      * 查询全部
      * @return
      */
-	List<SysUser> selectAll();
+	List<SysUser> findAll();
+	
+	/**
+	 * 分页查询
+	 * @return
+	 */
+	List<SysUser> findPage();
 }

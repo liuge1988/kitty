@@ -125,7 +125,7 @@
       order_num = #{orderNum,jdbcType=INTEGER}
     where menu_id = #{menuId,jdbcType=BIGINT}
   </update>
-  <select id="selectPage"  resultMap="BaseResultMap">
+  <select id="findPage"  resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_menu

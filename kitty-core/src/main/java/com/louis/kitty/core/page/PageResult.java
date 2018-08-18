@@ -1,4 +1,4 @@
-package com.louis.kitty.admin.page;
+package com.louis.kitty.core.page;
 
 import java.util.List;
 /**
@@ -22,7 +22,7 @@ public class PageResult {
 	 */
 	private int totalPages;
 	/**
-	 * 数据模型
+	 * 分页数据
 	 */
 	private List<?> content;
 	public int getPageNum() {
