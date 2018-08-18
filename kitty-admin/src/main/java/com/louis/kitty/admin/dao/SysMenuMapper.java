@@ -1,5 +1,7 @@
 package com.louis.kitty.admin.dao;
 
+import java.util.List;
+
 import com.louis.kitty.admin.model.SysMenu;
 
 public interface SysMenuMapper {
@@ -14,4 +16,10 @@ public interface SysMenuMapper {
     int updateByPrimaryKeySelective(SysMenu record);
 
     int updateByPrimaryKey(SysMenu record);
+    
+    /**
+     * 分页查询
+     * @return
+     */
+	List<SysMenu> selectPage();
 }
