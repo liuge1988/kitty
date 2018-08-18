@@ -5,11 +5,11 @@
 
 	<groupId>com.louis</groupId>
 	<artifactId>kitty-pom</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<version>${project.version}</version>
+	<packaging>pom</packaging>
 
 	<name>kitty-pom</name>
-	<description>Demo project for Spring Boot</description>
+	<description>kitty-pom</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -22,35 +22,97 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<swagger.version>2.8.0</swagger.version>
 		<mybatis.spring.version>1.3.2</mybatis.spring.version>
+		<druid.version>1.1.10</druid.version>
+		<log4j.version>1.2.17</log4j.version>
+		<pagehelper.spring.version>1.2.5</pagehelper.spring.version>
+		<project.version>1.0.0</project.version>
 	</properties>
 	
-	<dependencies>
-		<!-- spring boot -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<!-- pagehelper -->
-		<dependency>
-			<groupId>com.github.pagehelper</groupId>
-			<artifactId>pagehelper-spring-boot-starter</artifactId>
-			<version>1.2.5</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.louis</groupId>
-			<artifactId>kitty-common</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-		</dependency>
-	</dependencies>
+	<modules>
+		<module>../kitty-common</module>
+		<module>../kitty-core</module>
+		<module>../kitty-admin</module>
+		<module>../kitty-boot</module>
+	</modules>
 	
-<!-- 	<build> -->
-<!-- 		<plugins> -->
-<!-- 			<plugin> -->
-<!-- 				<groupId>org.springframework.boot</groupId> -->
-<!-- 				<artifactId>spring-boot-maven-plugin</artifactId> -->
-<!-- 			</plugin> -->
-<!-- 		</plugins> -->
-<!-- 	</build> -->
+	<dependencyManagement>
+		<dependencies>
+			<!-- mybatis -->
+			<dependency>
+			    <groupId>org.mybatis.spring.boot</groupId>
+			    <artifactId>mybatis-spring-boot-starter</artifactId>
+			    <version>${mybatis.spring.version}</version>
+			</dependency>
+			<!-- druid -->
+			<dependency>
+			   <groupId>com.alibaba</groupId>
+			   <artifactId>druid-spring-boot-starter</artifactId>
+			    <version>${druid.version}</version>
+			</dependency>
+			<!-- log4j -->
+			<dependency>
+	            <groupId>log4j</groupId>
+	            <artifactId>log4j</artifactId>
+			    <version>${log4j.version}</version>
+	        </dependency>
+			<!-- pagehelper -->
+			<dependency>
+				<groupId>com.github.pagehelper</groupId>
+				<artifactId>pagehelper-spring-boot-starter</artifactId>
+				<version>${pagehelper.spring.version}</version>
+			</dependency>
+		    <!-- swagger -->
+			<dependency>
+			    <groupId>io.springfox</groupId>
+			    <artifactId>springfox-swagger2</artifactId>
+			    <version>${swagger.version}</version>
+			</dependency>
+			<dependency>
+			    <groupId>io.springfox</groupId>
+			    <artifactId>springfox-swagger-ui</artifactId>
+			    <version>${swagger.version}</version>
+			</dependency>
+		    <!-- kitty-common -->
+			<dependency>
+				<groupId>com.louis</groupId>
+				<artifactId>kitty-common</artifactId>
+			    <version>${project.version}</version>
+			</dependency>
+		    <!-- kitty-core -->
+			<dependency>
+				<groupId>com.louis</groupId>
+				<artifactId>kitty-core</artifactId>
+			    <version>${project.version}</version>
+			</dependency>
+		    <!-- kitty-admin -->
+			<dependency>
+				<groupId>com.louis</groupId>
+				<artifactId>kitty-admin</artifactId>
+			    <version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	
+	<build>
+		<!-- 打包时拷贝MyBatis的映射文件 -->
+		<resources>
+			<resource>
+				<directory>src/main/java</directory>
+				<includes>
+					<include>**/sqlmap/*.xml</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+			<resource>  
+                <directory>src/main/resources</directory>  
+                    <includes> 
+                    	<include>**/*.*</include>  
+                    </includes> 
+                    <filtering>true</filtering>  
+            </resource> 
+		</resources>
+	</build>
 </project>
+	
