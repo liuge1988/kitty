@@ -3,6 +3,8 @@ package com.louis.kitty.core.page;
 import java.util.List;
 /**
  * 分页返回结果
+ * @author Louis
+ * @date Aug 19, 2018
  */
 public class PageResult {
 	/**

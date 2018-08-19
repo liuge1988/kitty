@@ -5,14 +5,13 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.louis.kitty.admin.dao.SysMenuMapper;
 import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.admin.sevice.SysMenuService;
+import com.louis.kitty.core.page.ColumnFilter;
+import com.louis.kitty.core.page.MybatisPageHelper;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
-import com.louis.kitty.core.page.PageUtils;
 
 @Service
 public class SysMenuServiceImpl implements SysMenuService {
@@ -51,20 +50,11 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		return PageUtils.getPageResult(pageRequest, getPageInfo(pageRequest));
+		ColumnFilter columnFilter = pageRequest.getColumnFilter(NAME);
+		if(columnFilter != null) {
+			return MybatisPageHelper.findPage(pageRequest, sysMenuMapper, "findPageByName", columnFilter.getValue());
+		}
+		return MybatisPageHelper.findPage(pageRequest, sysMenuMapper);
 	}
 	
-	/**
-	 * 调用分页插件完成分页
-	 * @param pageQuery
-	 * @return
-	 */
-	private PageInfo<SysMenu> getPageInfo(PageRequest pageRequest) {
-		int pageNum = pageRequest.getPageNum();
-		int pageSize = pageRequest.getPageSize();
-		PageHelper.startPage(pageNum, pageSize);
-		List<SysMenu> sysMenus = sysMenuMapper.findPage();
-		return new PageInfo<SysMenu>(sysMenus);
-	}
-
 }

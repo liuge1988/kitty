@@ -17,9 +17,9 @@ public class SysMenuController {
 	@Autowired
 	private SysMenuService sysMenuService;
 	
-	
 	@PostMapping(value="/findPage")
-	public HttpResult findPage(@RequestBody PageRequest pageQuery) {
-		return HttpResult.ok(sysMenuService.findPage(pageQuery));
+	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
+		return HttpResult.ok(sysMenuService.findPage(pageRequest));
 	}
+	
 }

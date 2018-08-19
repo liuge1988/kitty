@@ -5,5 +5,4 @@ import com.louis.kitty.core.service.CurdService;
 
 public interface SysMenuService extends CurdService<SysMenu> {
 
-
 }

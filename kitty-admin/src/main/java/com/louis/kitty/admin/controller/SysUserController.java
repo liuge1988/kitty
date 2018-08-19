@@ -19,8 +19,6 @@ public class SysUserController {
 	@Autowired
 	private SysUserService sysUserService;
 	
-	@ApiOperation(value="获取用户信息", notes="根据用户ID获取用户信息")
-    @ApiImplicitParam(name = "userId", value = "用户ID", required = true, dataType = "Long")
 	@GetMapping(value="/findByUserId")
 	public HttpResult findByUserId(@RequestParam Long userId) {
 		return HttpResult.ok(sysUserService.findById(userId));

@@ -10,6 +10,9 @@ import com.louis.kitty.core.page.PageResult;
  */
 public interface CurdService<T> {
 
+	String NAME = "name";
+	String TITLE = "title";
+	
 	/**
 	 * 保存操作
 	 * @param record

@@ -2,6 +2,8 @@ package com.louis.kitty.admin.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.louis.kitty.admin.model.SysMenu;
 
 public interface SysMenuMapper {
@@ -22,4 +24,6 @@ public interface SysMenuMapper {
      * @return
      */
 	List<SysMenu> findPage();
+
+	List<SysMenu> findPageByName(@Param(value = "name") String name);
 }

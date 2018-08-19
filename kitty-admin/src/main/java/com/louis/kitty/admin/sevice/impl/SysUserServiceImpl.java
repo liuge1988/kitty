@@ -5,14 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import com.louis.kitty.admin.dao.SysUserMapper;
 import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.sevice.SysUserService;
+import com.louis.kitty.core.page.MybatisPageHelper;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
-import com.louis.kitty.core.page.PageUtils;
 
 @Service
 public class SysUserServiceImpl  implements SysUserService {
@@ -48,25 +46,11 @@ public class SysUserServiceImpl  implements SysUserService {
 		return sysUserMapper.selectByPrimaryKey(id);
 	}
 
-
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		return PageUtils.getPageResult(pageRequest, getPageInfo(pageRequest));
+		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 	}
 	
-	/**
-	 * 调用分页插件完成分页
-	 * @param pageQuery
-	 * @return
-	 */
-	private PageInfo<SysUser> getPageInfo(PageRequest pageRequest) {
-		int pageNum = pageRequest.getPageNum();
-		int pageSize = pageRequest.getPageSize();
-		PageHelper.startPage(pageNum, pageSize);
-		List<SysUser> sysMenus = sysUserMapper.findPage();
-		return new PageInfo<SysUser>(sysMenus);
-	}
-
 	@Override
 	public List<SysUser> findAll() {
 		return sysUserMapper.findAll();
