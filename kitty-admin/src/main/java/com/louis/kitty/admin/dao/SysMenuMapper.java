@@ -19,10 +19,6 @@ public interface SysMenuMapper {
 
     int updateByPrimaryKey(SysMenu record);
     
-    /**
-     * 分页查询
-     * @return
-     */
 	List<SysMenu> findPage();
 
 	List<SysMenu> findPageByName(@Param(value = "name") String name);

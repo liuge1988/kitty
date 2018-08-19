@@ -1,5 +1,7 @@
 package com.louis.kitty.admin.dao;
 
+import java.util.List;
+
 import com.louis.kitty.admin.model.SysDept;
 
 public interface SysDeptMapper {
@@ -14,4 +16,6 @@ public interface SysDeptMapper {
     int updateByPrimaryKeySelective(SysDept record);
 
     int updateByPrimaryKey(SysDept record);
+    
+    List<SysDept> findPage();
 }

@@ -8,45 +8,45 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.louis.kitty.admin.model.SysMenu;
-import com.louis.kitty.admin.sevice.SysMenuService;
+import com.louis.kitty.admin.model.SysDept;
+import com.louis.kitty.admin.sevice.SysDeptService;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
 
 @RestController
-@RequestMapping("menu")
-public class SysMenuController {
+@RequestMapping("dept")
+public class SysDeptController {
 
 	@Autowired
-	private SysMenuService sysMenuService;
+	private SysDeptService sysDeptService;
 	
 	@PostMapping(value="/save")
-	public int save(SysMenu record) {
-		return sysMenuService.save(record);
+	public int save(SysDept record) {
+		return sysDeptService.save(record);
 	}
 
 	@PostMapping(value="/update")
-	public int update(SysMenu record) {
-		return sysMenuService.update(record);
+	public int update(SysDept record) {
+		return sysDeptService.update(record);
 	}
 
 	@PostMapping(value="/delete")
-	public int delete(SysMenu record) {
-		return sysMenuService.delete(record);
+	public int delete(SysDept record) {
+		return sysDeptService.delete(record);
 	}
 
 	@PostMapping(value="/delete")
-	public int delete(List<SysMenu> records) {
-		return sysMenuService.delete(records);
+	public int delete(List<SysDept> records) {
+		return sysDeptService.delete(records);
 	}
 
 	@GetMapping(value="/findById")
-	public SysMenu findById(Long id) {
-		return sysMenuService.findById(id);
+	public SysDept findById(Long id) {
+		return sysDeptService.findById(id);
 	}
 
 	@PostMapping(value="/update")
 	public PageResult findPage(PageRequest pageRequest) {
-		return sysMenuService.findPage(pageRequest);
+		return sysDeptService.findPage(pageRequest);
 	}
 }

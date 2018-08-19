@@ -51,9 +51,4 @@ public class SysUserServiceImpl  implements SysUserService {
 		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 	}
 	
-	@Override
-	public List<SysUser> findAll() {
-		return sysUserMapper.findAll();
-	}
-
 }

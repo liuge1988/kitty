@@ -1,5 +1,7 @@
 package com.louis.kitty.admin.dao;
 
+import java.util.List;
+
 import com.louis.kitty.admin.model.SysLog;
 
 public interface SysLogMapper {
@@ -14,4 +16,6 @@ public interface SysLogMapper {
     int updateByPrimaryKeySelective(SysLog record);
 
     int updateByPrimaryKey(SysLog record);
+    
+    List<SysLog> findPage();
 }
