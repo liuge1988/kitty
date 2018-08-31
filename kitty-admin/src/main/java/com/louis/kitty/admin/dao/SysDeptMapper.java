@@ -18,4 +18,6 @@ public interface SysDeptMapper {
     int updateByPrimaryKey(SysDept record);
     
     List<SysDept> findPage();
+    
+    List<SysDept> findAll();
 }

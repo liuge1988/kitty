@@ -50,5 +50,10 @@ public class SysRoleServiceImpl  implements SysRoleService {
 	public PageResult findPage(PageRequest pageRequest) {
 		return MybatisPageHelper.findPage(pageRequest, sysRoleMapper);
 	}
+
+	@Override
+	public List<SysRole> findAll() {
+		return sysRoleMapper.findAll();
+	}
 	
 }

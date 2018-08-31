@@ -5,11 +5,15 @@
     <id column="role_id" jdbcType="BIGINT" property="roleId" />
     <result column="role_name" jdbcType="VARCHAR" property="roleName" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="dept_id" jdbcType="BIGINT" property="deptId" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
+    <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    role_id, role_name, remark, dept_id, create_time
+    role_id, role_name, remark, create_by, create_time, last_update_by, last_update_time, 
+    del_flag
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -23,9 +27,11 @@
   </delete>
   <insert id="insert" parameterType="com.louis.kitty.admin.model.SysRole">
     insert into sys_role (role_id, role_name, remark, 
-      dept_id, create_time)
+      create_by, create_time, last_update_by, 
+      last_update_time, del_flag)
     values (#{roleId,jdbcType=BIGINT}, #{roleName,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
-      #{deptId,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP})
+      #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, 
+      #{lastUpdateTime,jdbcType=TIMESTAMP}, #{delFlag,jdbcType=TINYINT})
   </insert>
   <insert id="insertSelective" parameterType="com.louis.kitty.admin.model.SysRole">
     insert into sys_role
@@ -39,11 +45,20 @@
       <if test="remark != null">
         remark,
       </if>
-      <if test="deptId != null">
-        dept_id,
+      <if test="createBy != null">
+        create_by,
       </if>
       <if test="createTime != null">
         create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
+      </if>
+      <if test="delFlag != null">
+        del_flag,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -56,11 +71,20 @@
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="deptId != null">
-        #{deptId,jdbcType=BIGINT},
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
         #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        #{delFlag,jdbcType=TINYINT},
       </if>
     </trim>
   </insert>
@@ -73,11 +97,20 @@
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="deptId != null">
-        dept_id = #{deptId,jdbcType=BIGINT},
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
       </if>
       <if test="createTime != null">
         create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delFlag != null">
+        del_flag = #{delFlag,jdbcType=TINYINT},
       </if>
     </set>
     where role_id = #{roleId,jdbcType=BIGINT}
@@ -86,11 +119,19 @@
     update sys_role
     set role_name = #{roleName,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
-      dept_id = #{deptId,jdbcType=BIGINT},
-      create_time = #{createTime,jdbcType=TIMESTAMP}
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
+      del_flag = #{delFlag,jdbcType=TINYINT}
     where role_id = #{roleId,jdbcType=BIGINT}
   </update>
   <select id="findPage" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+  </select>
+  <select id="findAll" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_role

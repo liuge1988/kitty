@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.louis.kitty.admin.dao.SysUserMapper;
 import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.sevice.SysUserService;
+import com.louis.kitty.core.page.ColumnFilter;
 import com.louis.kitty.core.page.MybatisPageHelper;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
@@ -47,8 +48,17 @@ public class SysUserServiceImpl  implements SysUserService {
 	}
 
 	@Override
-	public PageResult findPage(PageRequest pageRequest) {
-		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
+	public SysUser findByUserName(String username) {
+		return sysUserMapper.findByUserName(username);
 	}
 	
+	@Override
+	public PageResult findPage(PageRequest pageRequest) {
+		ColumnFilter columnFilter = pageRequest.getColumnFilter(NAME);
+		if(columnFilter != null) {
+			return MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", columnFilter.getValue());
+		}
+		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
+	}
+
 }

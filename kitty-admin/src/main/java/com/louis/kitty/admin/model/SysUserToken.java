@@ -2,12 +2,14 @@ package com.louis.kitty.admin.model;
 
 import java.util.Date;
 
-public class SysRoleDept {
+public class SysUserToken {
     private Long id;
 
-    private Long roleId;
+    private Long userId;
 
-    private Long deptId;
+    private String token;
+
+    private Date expireTime;
 
     private Long createBy;
 
@@ -25,20 +27,28 @@ public class SysRoleDept {
         this.id = id;
     }
 
-    public Long getRoleId() {
-        return roleId;
+    public Long getUserId() {
+        return userId;
     }
 
-    public void setRoleId(Long roleId) {
-        this.roleId = roleId;
+    public void setUserId(Long userId) {
+        this.userId = userId;
     }
 
-    public Long getDeptId() {
-        return deptId;
+    public String getToken() {
+        return token;
     }
 
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
+    public void setToken(String token) {
+        this.token = token == null ? null : token.trim();
+    }
+
+    public Date getExpireTime() {
+        return expireTime;
+    }
+
+    public void setExpireTime(Date expireTime) {
+        this.expireTime = expireTime;
     }
 
     public Long getCreateBy() {

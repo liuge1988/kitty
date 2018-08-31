@@ -21,5 +21,9 @@ public interface SysMenuMapper {
     
 	List<SysMenu> findPage();
 
-	List<SysMenu> findPageByName(@Param(value = "name") String name);
+	List<SysMenu> findPageByName(@Param(value="name") String name);
+	
+	List<SysMenu> findAll();
+
+	List<SysMenu> findPageByUserName(@Param(value="username") String username);
 }

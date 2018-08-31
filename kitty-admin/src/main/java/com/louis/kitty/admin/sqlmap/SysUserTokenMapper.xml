@@ -1,47 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.louis.kitty.admin.dao.SysRoleMenuMapper">
-  <resultMap id="BaseResultMap" type="com.louis.kitty.admin.model.SysRoleMenu">
+<mapper namespace="com.louis.kitty.admin.dao.SysUserTokenMapper">
+  <resultMap id="BaseResultMap" type="com.louis.kitty.admin.model.SysUserToken">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="role_id" jdbcType="BIGINT" property="roleId" />
-    <result column="menu_id" jdbcType="BIGINT" property="menuId" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="token" jdbcType="VARCHAR" property="token" />
+    <result column="expire_time" jdbcType="TIMESTAMP" property="expireTime" />
     <result column="create_by" jdbcType="BIGINT" property="createBy" />
     <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
     <result column="last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
     <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, role_id, menu_id, create_by, create_time, last_update_by, last_update_time
+    id, user_id, token, expire_time, create_by, create_time, last_update_by, last_update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from sys_role_menu
+    from sys_user_token
     where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
-    delete from sys_role_menu
+    delete from sys_user_token
     where id = #{id,jdbcType=BIGINT}
   </delete>
-  <insert id="insert" parameterType="com.louis.kitty.admin.model.SysRoleMenu">
-    insert into sys_role_menu (id, role_id, menu_id, 
-      create_by, create_time, last_update_by, 
-      last_update_time)
-    values (#{id,jdbcType=BIGINT}, #{roleId,jdbcType=BIGINT}, #{menuId,jdbcType=BIGINT}, 
-      #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, 
-      #{lastUpdateTime,jdbcType=TIMESTAMP})
+  <insert id="insert" parameterType="com.louis.kitty.admin.model.SysUserToken">
+    insert into sys_user_token (id, user_id, token, 
+      expire_time, create_by, create_time, 
+      last_update_by, last_update_time)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=BIGINT}, #{token,jdbcType=VARCHAR}, 
+      #{expireTime,jdbcType=TIMESTAMP}, #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.louis.kitty.admin.model.SysRoleMenu">
-    insert into sys_role_menu
+  <insert id="insertSelective" parameterType="com.louis.kitty.admin.model.SysUserToken">
+    insert into sys_user_token
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,
       </if>
-      <if test="roleId != null">
-        role_id,
+      <if test="userId != null">
+        user_id,
       </if>
-      <if test="menuId != null">
-        menu_id,
+      <if test="token != null">
+        token,
+      </if>
+      <if test="expireTime != null">
+        expire_time,
       </if>
       <if test="createBy != null">
         create_by,
@@ -60,11 +64,14 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="roleId != null">
-        #{roleId,jdbcType=BIGINT},
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
       </if>
-      <if test="menuId != null">
-        #{menuId,jdbcType=BIGINT},
+      <if test="token != null">
+        #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="expireTime != null">
+        #{expireTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createBy != null">
         #{createBy,jdbcType=BIGINT},
@@ -80,14 +87,17 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.louis.kitty.admin.model.SysRoleMenu">
-    update sys_role_menu
+  <update id="updateByPrimaryKeySelective" parameterType="com.louis.kitty.admin.model.SysUserToken">
+    update sys_user_token
     <set>
-      <if test="roleId != null">
-        role_id = #{roleId,jdbcType=BIGINT},
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
       </if>
-      <if test="menuId != null">
-        menu_id = #{menuId,jdbcType=BIGINT},
+      <if test="token != null">
+        token = #{token,jdbcType=VARCHAR},
+      </if>
+      <if test="expireTime != null">
+        expire_time = #{expireTime,jdbcType=TIMESTAMP},
       </if>
       <if test="createBy != null">
         create_by = #{createBy,jdbcType=BIGINT},
@@ -104,14 +114,27 @@
     </set>
     where id = #{id,jdbcType=BIGINT}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.louis.kitty.admin.model.SysRoleMenu">
-    update sys_role_menu
-    set role_id = #{roleId,jdbcType=BIGINT},
-      menu_id = #{menuId,jdbcType=BIGINT},
+  <update id="updateByPrimaryKey" parameterType="com.louis.kitty.admin.model.SysUserToken">
+    update sys_user_token
+    set user_id = #{userId,jdbcType=BIGINT},
+      token = #{token,jdbcType=VARCHAR},
+      expire_time = #{expireTime,jdbcType=TIMESTAMP},
       create_by = #{createBy,jdbcType=BIGINT},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
       last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
+  <select id="findByUserId" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_token
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  <select id="findByToken" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_token
+    where token = #{token,jdbcType=BIGINT}
+  </select>
 </mapper>

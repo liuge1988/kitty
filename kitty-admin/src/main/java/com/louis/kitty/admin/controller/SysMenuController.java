@@ -5,13 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.admin.sevice.SysMenuService;
+import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
-import com.louis.kitty.core.page.PageResult;
 
 @RestController
 @RequestMapping("menu")
@@ -21,32 +23,37 @@ public class SysMenuController {
 	private SysMenuService sysMenuService;
 	
 	@PostMapping(value="/save")
-	public int save(SysMenu record) {
-		return sysMenuService.save(record);
+	public HttpResult save(@RequestBody SysMenu record) {
+		return HttpResult.ok(sysMenuService.save(record));
 	}
 
 	@PostMapping(value="/update")
-	public int update(SysMenu record) {
-		return sysMenuService.update(record);
+	public HttpResult update(@RequestBody SysMenu record) {
+		return HttpResult.ok(sysMenuService.update(record));
 	}
 
 	@PostMapping(value="/delete")
-	public int delete(SysMenu record) {
-		return sysMenuService.delete(record);
+	public HttpResult delete(@RequestBody SysMenu record) {
+		return HttpResult.ok(sysMenuService.delete(record));
 	}
 
-	@PostMapping(value="/delete")
-	public int delete(List<SysMenu> records) {
-		return sysMenuService.delete(records);
+	@PostMapping(value="/deleteBatch")
+	public HttpResult delete(@RequestBody List<SysMenu> records) {
+		return HttpResult.ok(sysMenuService.delete(records));
 	}
 
 	@GetMapping(value="/findById")
-	public SysMenu findById(Long id) {
-		return sysMenuService.findById(id);
+	public HttpResult findById(@RequestParam Long id) {
+		return HttpResult.ok(sysMenuService.findById(id));
 	}
 
-	@PostMapping(value="/update")
-	public PageResult findPage(PageRequest pageRequest) {
-		return sysMenuService.findPage(pageRequest);
+	@PostMapping(value="/findPage")
+	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
+		return HttpResult.ok(sysMenuService.findPage(pageRequest));
+	}
+
+	@GetMapping(value="/findTree")
+	public HttpResult findTree(String userName) {
+		return HttpResult.ok(sysMenuService.findTree(userName));
 	}
 }

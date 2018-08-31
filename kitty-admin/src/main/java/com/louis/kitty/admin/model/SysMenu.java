@@ -1,5 +1,8 @@
 package com.louis.kitty.admin.model;
 
+import java.util.Date;
+import java.util.List;
+
 public class SysMenu {
     private Long menuId;
 
@@ -17,6 +20,18 @@ public class SysMenu {
 
     private Integer orderNum;
 
+    private Long createBy;
+
+    private Date createTime;
+
+    private Long lastUpdateBy;
+
+    private Date lastUpdateTime;
+
+    private Byte delFlag;
+
+    private List<SysMenu> children;
+    
     public Long getMenuId() {
         return menuId;
     }
@@ -80,4 +95,52 @@ public class SysMenu {
     public void setOrderNum(Integer orderNum) {
         this.orderNum = orderNum;
     }
+
+    public Long getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getLastUpdateBy() {
+        return lastUpdateBy;
+    }
+
+    public void setLastUpdateBy(Long lastUpdateBy) {
+        this.lastUpdateBy = lastUpdateBy;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Byte getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Byte delFlag) {
+        this.delFlag = delFlag;
+    }
+
+	public List<SysMenu> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<SysMenu> children) {
+		this.children = children;
+	}
 }

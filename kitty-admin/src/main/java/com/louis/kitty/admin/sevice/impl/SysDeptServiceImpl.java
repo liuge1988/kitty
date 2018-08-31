@@ -1,5 +1,6 @@
 package com.louis.kitty.admin.sevice.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,6 +50,32 @@ public class SysDeptServiceImpl  implements SysDeptService {
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
 		return MybatisPageHelper.findPage(pageRequest, sysDeptMapper);
+	}
+
+	@Override
+	public List<SysDept> findTree() {
+		List<SysDept> sysDepts = new ArrayList<>();
+		List<SysDept> depts = sysDeptMapper.findAll();
+		for (SysDept dept : depts) {
+			if (dept.getParentId() == null || dept.getParentId() == 0) {
+				sysDepts.add(dept);
+			}
+		}
+		findChildren(sysDepts, depts);
+		return sysDepts;
+	}
+
+	private void findChildren(List<SysDept> sysDepts, List<SysDept> depts) {
+		for (SysDept sysDept : sysDepts) {
+			List<SysDept> children = new ArrayList<>();
+			for (SysDept dept : depts) {
+				if (sysDept.getDeptId() != null && sysDept.getDeptId().equals(dept.getParentId())) {
+					children.add(dept);
+				}
+			}
+			sysDept.setChildren(children);
+			findChildren(children, depts);
+		}
 	}
 	
 }

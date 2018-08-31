@@ -14,5 +14,4 @@ public interface SysRoleDeptMapper {
     int updateByPrimaryKeySelective(SysRoleDept record);
 
     int updateByPrimaryKey(SysRoleDept record);
-    
 }

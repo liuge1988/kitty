@@ -9,9 +9,15 @@ public class SysRole {
 
     private String remark;
 
-    private Long deptId;
+    private Long createBy;
 
     private Date createTime;
+
+    private Long lastUpdateBy;
+
+    private Date lastUpdateTime;
+
+    private Byte delFlag;
 
     public Long getRoleId() {
         return roleId;
@@ -37,12 +43,12 @@ public class SysRole {
         this.remark = remark == null ? null : remark.trim();
     }
 
-    public Long getDeptId() {
-        return deptId;
+    public Long getCreateBy() {
+        return createBy;
     }
 
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
     }
 
     public Date getCreateTime() {
@@ -51,5 +57,29 @@ public class SysRole {
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Long getLastUpdateBy() {
+        return lastUpdateBy;
+    }
+
+    public void setLastUpdateBy(Long lastUpdateBy) {
+        this.lastUpdateBy = lastUpdateBy;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Byte getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Byte delFlag) {
+        this.delFlag = delFlag;
     }
 }

@@ -9,10 +9,14 @@
     <result column="params" jdbcType="VARCHAR" property="params" />
     <result column="time" jdbcType="BIGINT" property="time" />
     <result column="ip" jdbcType="VARCHAR" property="ip" />
-    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="create_by" jdbcType="BIGINT" property="createBy" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="last_update_by" jdbcType="BIGINT" property="lastUpdateBy" />
+    <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, username, operation, method, params, time, ip, create_date
+    id, username, operation, method, params, time, ip, create_by, create_time, last_update_by, 
+    last_update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
@@ -27,10 +31,12 @@
   <insert id="insert" parameterType="com.louis.kitty.admin.model.SysLog">
     insert into sys_log (id, username, operation, 
       method, params, time, 
-      ip, create_date)
+      ip, create_by, create_time, 
+      last_update_by, last_update_time)
     values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, 
       #{method,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, #{time,jdbcType=BIGINT}, 
-      #{ip,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP})
+      #{ip,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.louis.kitty.admin.model.SysLog">
     insert into sys_log
@@ -56,8 +62,17 @@
       <if test="ip != null">
         ip,
       </if>
-      <if test="createDate != null">
-        create_date,
+      <if test="createBy != null">
+        create_by,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by,
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -82,8 +97,17 @@
       <if test="ip != null">
         #{ip,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
-        #{createDate,jdbcType=TIMESTAMP},
+      <if test="createBy != null">
+        #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
@@ -108,8 +132,17 @@
       <if test="ip != null">
         ip = #{ip,jdbcType=VARCHAR},
       </if>
-      <if test="createDate != null">
-        create_date = #{createDate,jdbcType=TIMESTAMP},
+      <if test="createBy != null">
+        create_by = #{createBy,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateBy != null">
+        last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      </if>
+      <if test="lastUpdateTime != null">
+        last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -122,7 +155,10 @@
       params = #{params,jdbcType=VARCHAR},
       time = #{time,jdbcType=BIGINT},
       ip = #{ip,jdbcType=VARCHAR},
-      create_date = #{createDate,jdbcType=TIMESTAMP}
+      create_by = #{createBy,jdbcType=BIGINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
+      last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="findPage" resultMap="BaseResultMap">

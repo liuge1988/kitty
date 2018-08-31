@@ -5,13 +5,15 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.louis.kitty.admin.model.SysRole;
 import com.louis.kitty.admin.sevice.SysRoleService;
+import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
-import com.louis.kitty.core.page.PageResult;
 
 @RestController
 @RequestMapping("role")
@@ -21,32 +23,37 @@ public class SysRoleController {
 	private SysRoleService sysRoleService;
 	
 	@PostMapping(value="/save")
-	public int save(SysRole record) {
-		return sysRoleService.save(record);
+	public HttpResult save(@RequestBody SysRole record) {
+		return HttpResult.ok(sysRoleService.save(record));
 	}
 
 	@PostMapping(value="/update")
-	public int update(SysRole record) {
-		return sysRoleService.update(record);
+	public HttpResult update(@RequestBody SysRole record) {
+		return HttpResult.ok(sysRoleService.update(record));
 	}
 
 	@PostMapping(value="/delete")
-	public int delete(SysRole record) {
-		return sysRoleService.delete(record);
+	public HttpResult delete(@RequestBody SysRole record) {
+		return HttpResult.ok(sysRoleService.delete(record));
 	}
 
-	@PostMapping(value="/delete")
-	public int delete(List<SysRole> records) {
-		return sysRoleService.delete(records);
+	@PostMapping(value="/deleteBatch")
+	public HttpResult delete(@RequestBody List<SysRole> records) {
+		return HttpResult.ok(sysRoleService.delete(records));
 	}
 
 	@GetMapping(value="/findById")
-	public SysRole findById(Long id) {
-		return sysRoleService.findById(id);
+	public HttpResult findById(@RequestParam Long id) {
+		return HttpResult.ok(sysRoleService.findById(id));
 	}
 
-	@PostMapping(value="/update")
-	public PageResult findPage(PageRequest pageRequest) {
-		return sysRoleService.findPage(pageRequest);
+	@PostMapping(value="/findPage")
+	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
+		return HttpResult.ok(sysRoleService.findPage(pageRequest));
+	}
+	
+	@PostMapping(value="/findAll")
+	public HttpResult findAll() {
+		return HttpResult.ok(sysRoleService.findAll());
 	}
 }

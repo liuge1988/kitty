@@ -18,8 +18,18 @@ public class SysUser {
     private Byte status;
 
     private Long deptId;
+    
+    private String deptName;
+
+    private Long createBy;
 
     private Date createTime;
+
+    private Long lastUpdateBy;
+
+    private Date lastUpdateTime;
+
+    private Byte delFlag;
 
     public Long getUserId() {
         return userId;
@@ -85,11 +95,51 @@ public class SysUser {
         this.deptId = deptId;
     }
 
+    public String getDeptName() {
+		return deptName;
+	}
+
+	public void setDeptName(String deptName) {
+		this.deptName = deptName;
+	}
+
+	public Long getCreateBy() {
+        return createBy;
+    }
+
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
+    }
+
     public Date getCreateTime() {
         return createTime;
     }
 
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Long getLastUpdateBy() {
+        return lastUpdateBy;
+    }
+
+    public void setLastUpdateBy(Long lastUpdateBy) {
+        this.lastUpdateBy = lastUpdateBy;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
+    }
+
+    public Byte getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(Byte delFlag) {
+        this.delFlag = delFlag;
     }
 }

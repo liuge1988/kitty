@@ -17,7 +17,13 @@ public class SysLog {
 
     private String ip;
 
-    private Date createDate;
+    private Long createBy;
+
+    private Date createTime;
+
+    private Long lastUpdateBy;
+
+    private Date lastUpdateTime;
 
     public Long getId() {
         return id;
@@ -75,11 +81,35 @@ public class SysLog {
         this.ip = ip == null ? null : ip.trim();
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Long getCreateBy() {
+        return createBy;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreateBy(Long createBy) {
+        this.createBy = createBy;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getLastUpdateBy() {
+        return lastUpdateBy;
+    }
+
+    public void setLastUpdateBy(Long lastUpdateBy) {
+        this.lastUpdateBy = lastUpdateBy;
+    }
+
+    public Date getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(Date lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 }
