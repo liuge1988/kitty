@@ -192,14 +192,22 @@ CREATE TABLE `sys_dict` (
 --  Records of `sys_user`
 -- --------------------------------------
 INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'admin@qq.com', '13612345678', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('2', 'Louis', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'louis@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('3', 'Kobe', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'kobe@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('4', 'Iverson', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
 -- --------------------------------------
 --  Records of `sys_role`
 -- --------------------------------------
-INSERT INTO `sys_role` (`role_id`, `role_name`, `remark`, `create_time`) VALUES ('1', 'admin', '超级管理员', '2017-10-29 15:45:51');
+INSERT INTO `sys_role` (`role_id`, `role_name`, `remark`, `create_time`) VALUES ('1', 'admin', '超级管理员', '2018-08-14 11:11:11');
+INSERT INTO `sys_role` (`role_id`, `role_name`, `remark`, `create_time`) VALUES ('2', 'dev', '开发人员', '2018-08-14 11:11:11');
+INSERT INTO `sys_role` (`role_id`, `role_name`, `remark`, `create_time`) VALUES ('3', 'test', '测试人员', '2018-08-14 11:11:11');
 -- --------------------------------------
 --  Records of `sys_user_role`
 -- --------------------------------------
 INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('1', '1', '1');
+INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('2', '2', '1');
+INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('3', '3', '2');
+INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('4', '4', '3');
 -- --------------------------------------
 --  Records of `sys_dept`
 -- --------------------------------------
@@ -210,30 +218,65 @@ INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`)
 INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('6', '3', '宣传部', '1', '0');
 INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('7', '3', '销售部', '2', '0');
 INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('8', '3', '市场部', '3', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('9', '0', '牧尘集团', '1', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('10', '9', '北京分公司', '1', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('11', '9', '上海分公司', '2', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('12', '10', '技术部', '1', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('13', '10', '宣传部', '2', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('14', '11', '销售部', '1', '0');
+INSERT INTO `sys_dept` (`dept_id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('15', '11', '市场部', '2', '0');
 -- --------------------------------------
 --  Records of `sys_menu`
 -- --------------------------------------
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('1', '0', '系统管理', NULL, NULL, '0', 'fa fa-cog', '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('2', '1', '用户管理', 'modules/sys/user.html', NULL, '1', 'fa fa-user', '1');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('3', '1', '机构管理', 'modules/sys/dept.html', NULL, '1', 'fa fa-file-code-o', '2');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('4', '1', '角色管理', 'modules/sys/role.html', NULL, '1', 'fa fa-user-secret', '4');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('5', '1', '菜单管理', 'modules/sys/menu.html', NULL, '1', 'fa fa-th-list', '5');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('6', '1', 'SQL监控', 'druid/sql.html', NULL, '1', 'fa fa-bug', '6');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('8', '1', '系统日志', 'modules/sys/log.html', 'sys:log:list', '1', 'fa fa-file-text-o', '7');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('9', '2', '查看', NULL, 'sys:user:list,sys:user:info', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('10', '2', '新增', NULL, 'sys:user:save,sys:role:select', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('11', '2', '修改', NULL, 'sys:user:update,sys:role:select', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('1', '0', '系统管理', NULL, NULL, '0', 'fa el-icon-setting', '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('2', '1', '用户管理', '/sys/user', NULL, '1', 'el-icon-service', '1');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('3', '1', '机构管理', '/sys/dept', NULL, '1', 'el-icon-news', '2');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('4', '1', '角色管理', '/sys/role', NULL, '1', 'el-icon-view', '4');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('5', '1', '菜单管理', '/sys/menu', NULL, '1', 'el-icon-menu', '5');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('6', '1', 'SQL监控', '/druid/sql', NULL, '1', 'el-icon-info', '6');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('8', '1', '系统日志', '/sys/log', 'sys:log:list', '1', 'el-icon-info', '7');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('9', '2', '查看', NULL, 'sys:user:view', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('10', '2', '新增', NULL, 'sys:user:save', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('11', '2', '修改', NULL, 'sys:user:update', '2', NULL, '0');
 INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('12', '2', '删除', NULL, 'sys:user:delete', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('13', '3', '查看', NULL, 'sys:dept:list,sys:dept:info', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('14', '3', '新增', NULL, 'sys:dept:save,sys:dept:select', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('15', '3', '修改', NULL, 'sys:dept:update,sys:dept:select', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('13', '3', '查看', NULL, 'sys:dept:view', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('14', '3', '新增', NULL, 'sys:dept:save', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('15', '3', '修改', NULL, 'sys:dept:update', '2', NULL, '0');
 INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('16', '3', '删除', NULL, 'sys:dept:delete', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('17', '4', '查看', NULL, 'sys:role:list,sys:role:info', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('18', '4', '新增', NULL, 'sys:role:save,sys:menu:perms', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('19', '4', '修改', NULL, 'sys:role:update,sys:menu:perms', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('17', '4', '查看', NULL, 'sys:role:view', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('18', '4', '新增', NULL, 'sys:role:save', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('19', '4', '修改', NULL, 'sys:role:update', '2', NULL, '0');
 INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('20', '4', '删除', NULL, 'sys:role:delete', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('21', '5', '查看', NULL, 'sys:menu:list,sys:menu:info', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('22', '5', '新增', NULL, 'sys:menu:save,sys:menu:select', '2', NULL, '0');
-INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('23', '5', '修改', NULL, 'sys:menu:update,sys:menu:select', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('21', '5', '查看', NULL, 'sys:menu:view', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('22', '5', '新增', NULL, 'sys:menu:save', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('23', '5', '修改', NULL, 'sys:menu:update', '2', NULL, '0');
 INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('24', '5', '删除', NULL, 'sys:menu:delete', '2', NULL, '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('25', '0', '内容管理', NULL, NULL, '0', 'el-icon-document', '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('26', '25', '栏目管理', '/content/category', NULL, '1', 'el-icon-tickets', '1');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('27', '25', '文章管理', '/content/artical', NULL, '1', 'el-icon-tickets', '2');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('28', '0', '使用案例', NULL, NULL, '0', 'el-icon-picture-outline', '0');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('29', '28', '国际化', '/demo/i18n', NULL, '1', 'el-icon-edit', '1');
+INSERT INTO `sys_menu` (`menu_id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('30', '28', '换皮肤', '/demo/theme', NULL, '1', 'el-icon-picture', '2');
+-- --------------------------------------
+--  Records of `sys_role_menu`
+-- --------------------------------------
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('1', '2', '25');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('2', '2', '26');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('3', '2', '27');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('4', '2', '28');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('5', '2', '29');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('6', '2', '30');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('7', '3', '25');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('8', '3', '26');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('9', '3', '27');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('10', '3', '28');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('11', '3', '29');
+INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('12', '3', '30');
+
+-- --------------------------------------
+--  Records of `sys_dict`
+-- --------------------------------------
+INSERT INTO `sys_dict` (`id`, `value`, `label`, `type`, `description`, `sort`) VALUES ('1', 'male', '男', 'sex', '男性', '0');
+INSERT INTO `sys_dict` (`id`, `value`, `label`, `type`, `description`, `sort`) VALUES ('2', 'female', '女', 'sex', '女性', '1');
+
 
