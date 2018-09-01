@@ -15,6 +15,7 @@ import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.model.SysUserToken;
 import com.louis.kitty.admin.sevice.SysUserService;
 import com.louis.kitty.admin.sevice.SysUserTokenService;
+import com.louis.kitty.admin.util.PasswordUtils;
 import com.louis.kitty.admin.vo.LoginBean;
 import com.louis.kitty.core.http.HttpResult;
 
@@ -41,23 +42,17 @@ public class SysLoginController {
 //		ShiroUtils.setSessionAttribute(KaptchaConstants.KAPTCHA_SESSION_KEY, text);
 //
 //		ServletOutputStream out = response.getOutputStream();
-//		ImageIO.write(image, "jpg", out);
+//		ImageIO.write(image, "jpg", out);	
 //		IOUtils.closeQuietly(out);
 	}
 
 	/**
-	 * 登录
+	 * 登录接口
 	 */
 	@PostMapping(value = "/sys/login")
 	public HttpResult login(@RequestBody LoginBean loginBean) throws IOException {
-		String captcha = loginBean.getCaptcha();
 		String username = loginBean.getUsername();
 		String password = loginBean.getPassword();
-
-//		String kaptcha = ShiroUtils.getKaptcha(KaptchaConstants.KAPTCHA_SESSION_KEY);
-//		if (!captcha.equalsIgnoreCase(kaptcha)) {
-//			return HttpResult.error("验证码不正确");
-//		}
 
 		// 用户信息
 		SysUser user = sysUserService.findByUserName(username);
@@ -67,9 +62,9 @@ public class SysLoginController {
 			return HttpResult.error("账号不存在");
 		}
 		
-//		if (!match(user, password)) {
-//			return HttpResult.error("密码不正确");
-//		}
+		if (!match(user, password)) {
+			return HttpResult.error("密码不正确");
+		}
 
 		// 账号锁定
 		if (user.getStatus() == 0) {
@@ -81,7 +76,13 @@ public class SysLoginController {
 		return HttpResult.ok(data);
 	}
 
-//	public boolean match(SysUser user, String password) {
-//		return user.getPassword().equals(PasswordUtils.encrypte(password, user.getSalt()));
-//	}
+	/**
+	 * 验证用户密码
+	 * @param user
+	 * @param password
+	 * @return
+	 */
+	public boolean match(SysUser user, String password) {
+		return user.getPassword().equals(PasswordUtils.encrypte(password, user.getSalt()));
+	}
 }

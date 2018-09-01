@@ -3,20 +3,14 @@ package com.louis.kitty.admin.model;
 import java.util.Date;
 
 public class SysUserToken {
+	
     private Long id;
-
     private Long userId;
-
     private String token;
-
     private Date expireTime;
-
     private Long createBy;
-
     private Date createTime;
-
     private Long lastUpdateBy;
-
     private Date lastUpdateTime;
 
     public Long getId() {

@@ -202,7 +202,7 @@
     from sys_menu
     where name like #{pattern}
   </select>
-  <select id="findPageByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
   	select m.* from sys_menu m, sys_user u, sys_user_role ur, sys_role_menu rm
   	where u.username = #{username,jdbcType=BIGINT} and u.user_id = ur.user_id 
   	and ur.role_id = rm.role_id and rm.menu_id = m.menu_id

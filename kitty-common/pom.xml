@@ -9,7 +9,7 @@
 		<version>${project.version}</version>
 		<relativePath>../kitty-pom</relativePath>
 	</parent>
-	
+
 	<artifactId>kitty-common</artifactId>
 	<packaging>jar</packaging>
 
@@ -22,5 +22,29 @@
 		<java.version>1.8</java.version>
 		<mybatis.spring.version>1.3.2</mybatis.spring.version>
 	</properties>
-	
+
+	<dependencies>
+		<!-- fastjson -->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+		</dependency>
+		<!-- commons -->
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-fileupload</groupId>
+			<artifactId>commons-fileupload</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+	</dependencies>
 </project>

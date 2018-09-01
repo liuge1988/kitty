@@ -1,12 +1,16 @@
 package com.louis.kitty.admin.sevice.impl;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.louis.kitty.admin.dao.SysUserMapper;
+import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.admin.model.SysUser;
+import com.louis.kitty.admin.sevice.SysMenuService;
 import com.louis.kitty.admin.sevice.SysUserService;
 import com.louis.kitty.core.page.ColumnFilter;
 import com.louis.kitty.core.page.MybatisPageHelper;
@@ -18,6 +22,8 @@ public class SysUserServiceImpl  implements SysUserService {
 
 	@Autowired
 	private SysUserMapper sysUserMapper;
+	@Autowired
+	private SysMenuService sysMenuService;
 
 	@Override
 	public int save(SysUser record) {
@@ -59,6 +65,16 @@ public class SysUserServiceImpl  implements SysUserService {
 			return MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", columnFilter.getValue());
 		}
 		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
+	}
+
+	@Override
+	public Set<String> findPermissions(String userName) {
+		Set<String> perms = new HashSet<>();
+		List<SysMenu> sysMenus = sysMenuService.findByUser(userName);
+		for(SysMenu sysMenu:sysMenus) {
+			perms.add(sysMenu.getPerms());
+		}
+		return perms;
 	}
 
 }

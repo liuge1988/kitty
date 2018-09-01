@@ -68,15 +68,13 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 
 	@Override
 	public SysUserToken createToken(long userId) {
-		//生成一个token
+		// 生成一个token
 		String token = TokenGenerator.generateToken();
-
-		//当前时间
+		// 当前时间
 		Date now = new Date();
-		//过期时间
+		// 过期时间
 		Date expireTime = new Date(now.getTime() + EXPIRE * 1000);
-
-		//判断是否生成过token
+		// 判断是否生成过token
 		SysUserToken sysUserToken = findByUserId(userId);
 		if(sysUserToken == null){
 			sysUserToken = new SysUserToken();
@@ -84,15 +82,13 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 			sysUserToken.setToken(token);
 			sysUserToken.setLastUpdateTime(now);
 			sysUserToken.setExpireTime(expireTime);
-
-			//保存token
+			// 保存token，这里选择保存到数据库，也可以放到Redis或Session之类可存储的地方
 			save(sysUserToken);
 		} else{
 			sysUserToken.setToken(token);
 			sysUserToken.setLastUpdateTime(now);
 			sysUserToken.setExpireTime(expireTime);
-
-			//更新token
+			// 如果token已经生成，则更新token的过期时间
 			update(sysUserToken);
 		}
 		return sysUserToken;

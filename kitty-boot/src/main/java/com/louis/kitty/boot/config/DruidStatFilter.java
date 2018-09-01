@@ -1,8 +1,5 @@
 package com.louis.kitty.boot.config;
 
-import javax.servlet.annotation.WebFilter;
-import javax.servlet.annotation.WebInitParam;
-
 import com.alibaba.druid.support.http.WebStatFilter;
 
 /**   

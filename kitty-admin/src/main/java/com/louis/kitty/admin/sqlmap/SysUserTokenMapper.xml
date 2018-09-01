@@ -131,7 +131,7 @@
     from sys_user_token
     where user_id = #{userId,jdbcType=BIGINT}
   </select>
-  <select id="findByToken" parameterType="java.lang.Long" resultMap="BaseResultMap">
+  <select id="findByToken" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_user_token

@@ -47,7 +47,7 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
 	}
 	
-	@PostMapping(value="/findAll")
+	@GetMapping(value="/findAll")
 	public HttpResult findAll() {
 		return HttpResult.ok(sysRoleService.findAll());
 	}
