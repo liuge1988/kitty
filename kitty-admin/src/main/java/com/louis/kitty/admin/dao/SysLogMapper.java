@@ -2,6 +2,8 @@ package com.louis.kitty.admin.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.louis.kitty.admin.model.SysLog;
 
 public interface SysLogMapper {
@@ -18,4 +20,6 @@ public interface SysLogMapper {
     int updateByPrimaryKey(SysLog record);
     
     List<SysLog> findPage();
+    
+    List<SysLog> findPageByUserName(@Param(value="username") String username);
 }

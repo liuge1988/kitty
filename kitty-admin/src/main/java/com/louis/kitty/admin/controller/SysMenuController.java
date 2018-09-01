@@ -42,16 +42,6 @@ public class SysMenuController {
 		return HttpResult.ok(sysMenuService.delete(records));
 	}
 
-	@GetMapping(value="/findById")
-	public HttpResult findById(@RequestParam Long id) {
-		return HttpResult.ok(sysMenuService.findById(id));
-	}
-
-	@PostMapping(value="/findPage")
-	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
-		return HttpResult.ok(sysMenuService.findPage(pageRequest));
-	}
-
 	@GetMapping(value="/findTree")
 	public HttpResult findTree(String userName) {
 		return HttpResult.ok(sysMenuService.findTree(userName));

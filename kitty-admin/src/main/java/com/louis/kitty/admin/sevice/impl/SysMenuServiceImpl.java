@@ -7,10 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.louis.kitty.admin.dao.SysMenuMapper;
-import com.louis.kitty.admin.dao.SysRoleMenuMapper;
 import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.admin.sevice.SysMenuService;
-import com.louis.kitty.core.page.ColumnFilter;
 import com.louis.kitty.core.page.MybatisPageHelper;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
@@ -20,8 +18,6 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 	@Autowired
 	private SysMenuMapper sysMenuMapper;
-	@Autowired
-	private SysRoleMenuMapper sysRoleMenuMapper;
 
 	@Override
 	public int save(SysMenu record) {
@@ -54,10 +50,6 @@ public class SysMenuServiceImpl implements SysMenuService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		ColumnFilter columnFilter = pageRequest.getColumnFilter(NAME);
-		if(columnFilter != null) {
-			return MybatisPageHelper.findPage(pageRequest, sysMenuMapper, "findPageByName", columnFilter.getValue());
-		}
 		return MybatisPageHelper.findPage(pageRequest, sysMenuMapper);
 	}
 	
@@ -75,7 +67,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 	}
 
 	private List<SysMenu> findByUser(String userName) {
-		if(userName == null) {
+		if(userName == null || "admin".equalsIgnoreCase(userName)) {
 			return sysMenuMapper.findAll();
 		}
 		return sysMenuMapper.findPageByUserName(userName);

@@ -41,11 +41,6 @@ public class SysDictController {
 		return HttpResult.ok(sysDictService.delete(records));
 	}
 
-	@GetMapping(value="/findById")
-	public HttpResult findById(Long id) {
-		return HttpResult.ok(sysDictService.findById(id));
-	}
-
 	@PostMapping(value="/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(sysDictService.findPage(pageRequest));

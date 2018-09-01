@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.louis.kitty.admin.dao.SysLogMapper;
 import com.louis.kitty.admin.model.SysLog;
 import com.louis.kitty.admin.sevice.SysLogService;
+import com.louis.kitty.core.page.ColumnFilter;
 import com.louis.kitty.core.page.MybatisPageHelper;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
@@ -48,6 +49,10 @@ public class SysLogServiceImpl  implements SysLogService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
+		ColumnFilter columnFilter = pageRequest.getColumnFilter(NAME);
+		if(columnFilter != null) {
+			return MybatisPageHelper.findPage(pageRequest, sysLogMapper, "findPageByName", columnFilter.getValue());
+		}
 		return MybatisPageHelper.findPage(pageRequest, sysLogMapper);
 	}
 	

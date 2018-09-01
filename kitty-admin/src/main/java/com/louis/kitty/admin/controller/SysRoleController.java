@@ -42,11 +42,6 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.delete(records));
 	}
 
-	@GetMapping(value="/findById")
-	public HttpResult findById(@RequestParam Long id) {
-		return HttpResult.ok(sysRoleService.findById(id));
-	}
-
 	@PostMapping(value="/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
