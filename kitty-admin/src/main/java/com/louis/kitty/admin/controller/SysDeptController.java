@@ -25,17 +25,7 @@ public class SysDeptController {
 		return HttpResult.ok(sysDeptService.save(record));
 	}
 
-	@PostMapping(value="/update")
-	public HttpResult update(@RequestBody SysDept record) {
-		return HttpResult.ok(sysDeptService.update(record));
-	}
-
 	@PostMapping(value="/delete")
-	public HttpResult delete(@RequestBody SysDept record) {
-		return HttpResult.ok(sysDeptService.delete(record));
-	}
-
-	@PostMapping(value="/deleteBatch")
 	public HttpResult delete(@RequestBody List<SysDept> records) {
 		return HttpResult.ok(sysDeptService.delete(records));
 	}

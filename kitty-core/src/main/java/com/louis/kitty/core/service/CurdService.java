@@ -9,9 +9,6 @@ import com.louis.kitty.core.page.PageResult;
  * 通用CURD接口
  */
 public interface CurdService<T> {
-
-	String NAME = "name";
-	String TITLE = "title";
 	
 	/**
 	 * 保存操作
@@ -19,13 +16,6 @@ public interface CurdService<T> {
 	 * @return
 	 */
 	int save(T record);
-	
-	/**
-	 * 更新操作
-	 * @param record
-	 * @return
-	 */
-	int update(T record);
 	
 	/**
 	 * 删除操作

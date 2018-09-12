@@ -20,11 +20,9 @@ public class SysDictServiceImpl  implements SysDictService {
 
 	@Override
 	public int save(SysDict record) {
-		return sysDictMapper.insertSelective(record);
-	}
-
-	@Override
-	public int update(SysDict record) {
+		if(record.getId() == null || record.getId() == 0) {
+			return sysDictMapper.insertSelective(record);
+		}
 		return sysDictMapper.updateByPrimaryKeySelective(record);
 	}
 

@@ -3,7 +3,6 @@ package com.louis.kitty.admin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,17 +25,7 @@ public class SysDictController {
 		return HttpResult.ok(sysDictService.save(record));
 	}
 
-	@PostMapping(value="/update")
-	public HttpResult update(@RequestBody SysDict record) {
-		return HttpResult.ok(sysDictService.update(record));
-	}
-
 	@PostMapping(value="/delete")
-	public HttpResult delete(@RequestBody SysDict record) {
-		return HttpResult.ok(sysDictService.delete(record));
-	}
-
-	@PostMapping(value="/deleteBatch")
 	public HttpResult delete(@RequestBody List<SysDict> records) {
 		return HttpResult.ok(sysDictService.delete(records));
 	}

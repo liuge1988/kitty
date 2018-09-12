@@ -2,15 +2,15 @@ package com.louis.kitty.admin.vo;
 
 public class LoginBean {
 
-	private String username;
+	private String account;
 	private String password;
 	private String captcha;
 	
-	public String getUsername() {
-		return username;
+	public String getAccount() {
+		return account;
 	}
-	public void setUsername(String username) {
-		this.username = username;
+	public void setAccount(String account) {
+		this.account = account;
 	}
 	public String getPassword() {
 		return password;

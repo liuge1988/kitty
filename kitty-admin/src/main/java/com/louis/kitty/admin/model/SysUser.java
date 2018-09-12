@@ -5,7 +5,7 @@ import java.util.Date;
 public class SysUser {
     private Long userId;
 
-    private String username;
+    private String userName;
 
     private String password;
 
@@ -39,15 +39,15 @@ public class SysUser {
         this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
-    }
+    public String getUserName() {
+		return userName;
+	}
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    public String getPassword() {
+	public String getPassword() {
         return password;
     }
 

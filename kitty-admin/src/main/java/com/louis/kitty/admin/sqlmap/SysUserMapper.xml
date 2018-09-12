@@ -3,7 +3,7 @@
 <mapper namespace="com.louis.kitty.admin.dao.SysUserMapper">
   <resultMap id="BaseResultMap" type="com.louis.kitty.admin.model.SysUser">
     <id column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="userName" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="salt" jdbcType="VARCHAR" property="salt" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -17,7 +17,7 @@
     <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    user_id, username, password, salt, email, mobile, status, dept_id, create_by, create_time, 
+    user_id, userName, password, salt, email, mobile, status, dept_id, create_by, create_time, 
     last_update_by, last_update_time, del_flag
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -31,12 +31,12 @@
     where user_id = #{userId,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.louis.kitty.admin.model.SysUser">
-    insert into sys_user (user_id, username, password, 
+    insert into sys_user (user_id, userName, password, 
       salt, email, mobile, 
       status, dept_id, create_by, 
       create_time, last_update_by, last_update_time, 
       del_flag)
-    values (#{userId,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{salt,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{deptId,jdbcType=BIGINT}, #{createBy,jdbcType=BIGINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
@@ -48,8 +48,8 @@
       <if test="userId != null">
         user_id,
       </if>
-      <if test="username != null">
-        username,
+      <if test="userName != null">
+        userName,
       </if>
       <if test="password != null">
         password,
@@ -89,8 +89,8 @@
       <if test="userId != null">
         #{userId,jdbcType=BIGINT},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
@@ -130,8 +130,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.louis.kitty.admin.model.SysUser">
     update sys_user
     <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        userName = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
@@ -171,7 +171,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.louis.kitty.admin.model.SysUser">
     update sys_user
-    set username = #{username,jdbcType=VARCHAR},
+    set userName = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
@@ -189,16 +189,12 @@
     select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
   </select>
   <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    where username = #{username,jdbcType=VARCHAR}
+    select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
+    where u.userName = #{userName,jdbcType=VARCHAR}
   </select>
   <select id="findPageByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
-  	<bind name="pattern" value="'%' + _parameter.username + '%'" />
-    select 
-    <include refid="Base_Column_List" />
-    from sys_user
-    where username like #{pattern}
+  	<bind name="pattern" value="'%' + _parameter.userName + '%'" />
+    select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
+    where u.userName like #{pattern}
   </select>
 </mapper>

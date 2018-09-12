@@ -5,7 +5,7 @@
 -- ----------------------------------------------------
 CREATE TABLE `sys_user` (
   `user_id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `username` varchar(50) NOT NULL COMMENT '用户名',
+  `userName` varchar(50) NOT NULL COMMENT '用户名',
   `password` varchar(100) COMMENT '密码',
   `salt` varchar(20) COMMENT '盐',
   `email` varchar(100) COMMENT '邮箱',
@@ -18,7 +18,7 @@ CREATE TABLE `sys_user` (
   `last_update_time` datetime COMMENT '更新时间',
   `del_flag` tinyint DEFAULT 0 COMMENT '是否删除  -1：已删除  0：正常',
   PRIMARY KEY (`user_id`),
-  UNIQUE INDEX (`username`)
+  UNIQUE INDEX (`userName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户';
 
 -- ----------------------------------------------------
@@ -151,7 +151,7 @@ CREATE TABLE `sys_user_token` (
 -- ------------------------------------------------
 CREATE TABLE `sys_log` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `username` varchar(50) COMMENT '用户名',
+  `userName` varchar(50) COMMENT '用户名',
   `operation` varchar(50) COMMENT '用户操作',
   `method` varchar(200) COMMENT '请求方法',
   `params` varchar(5000) COMMENT '请求参数',
@@ -191,10 +191,18 @@ CREATE TABLE `sys_dict` (
 -- --------------------------------------
 --  Records of `sys_user`
 -- --------------------------------------
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'admin@qq.com', '13612345678', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('2', 'Louis', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'louis@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('3', 'Kobe', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'kobe@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`user_id`, `username`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('4', 'Iverson', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'admin@qq.com', '13612345678', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('2', 'Louis', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'louis@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('3', 'Kobe', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'kobe@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('4', 'Iverson', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('5', 'Iverson5', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('6', 'Iverson6', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('7', 'Iverson7', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('8', 'Iverson8', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('9', 'Iverson9', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('10', 'Iverson10', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('11', 'Iverson11', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`user_id`, `userName`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('12', 'Iverson12', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
 -- --------------------------------------
 --  Records of `sys_role`
 -- --------------------------------------

@@ -21,11 +21,9 @@ public class SysLogServiceImpl  implements SysLogService {
 
 	@Override
 	public int save(SysLog record) {
-		return sysLogMapper.insertSelective(record);
-	}
-
-	@Override
-	public int update(SysLog record) {
+		if(record.getId() == null || record.getId() == 0) {
+			return sysLogMapper.insertSelective(record);
+		}
 		return sysLogMapper.updateByPrimaryKeySelective(record);
 	}
 
@@ -49,9 +47,9 @@ public class SysLogServiceImpl  implements SysLogService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		ColumnFilter columnFilter = pageRequest.getColumnFilter(NAME);
+		ColumnFilter columnFilter = pageRequest.getColumnFilter("UserName");
 		if(columnFilter != null) {
-			return MybatisPageHelper.findPage(pageRequest, sysLogMapper, "findPageByName", columnFilter.getValue());
+			return MybatisPageHelper.findPage(pageRequest, sysLogMapper, "findPageByUserName", columnFilter.getValue());
 		}
 		return MybatisPageHelper.findPage(pageRequest, sysLogMapper);
 	}

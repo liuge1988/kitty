@@ -20,11 +20,9 @@ public class SysRoleServiceImpl  implements SysRoleService {
 
 	@Override
 	public int save(SysRole record) {
-		return sysRoleMapper.insertSelective(record);
-	}
-
-	@Override
-	public int update(SysRole record) {
+		if(record.getRoleId() == null || record.getRoleId() == 0) {
+			return sysRoleMapper.insertSelective(record);
+		}
 		return sysRoleMapper.updateByPrimaryKeySelective(record);
 	}
 

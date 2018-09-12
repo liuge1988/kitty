@@ -45,7 +45,7 @@ public class OAuth2Realm extends AuthorizingRealm {
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
         SysUser user = (SysUser)principals.getPrimaryPrincipal();
         // 用户权限列表，根据用户拥有的权限标识与如 @permission标注的接口对比，决定是否可以调用接口
-        Set<String> permsSet = sysUserService.findPermissions(user.getUsername());
+        Set<String> permsSet = sysUserService.findPermissions(user.getUserName());
         SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
         info.setStringPermissions(permsSet);
         return info;

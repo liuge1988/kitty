@@ -27,11 +27,9 @@ public class SysUserServiceImpl  implements SysUserService {
 
 	@Override
 	public int save(SysUser record) {
-		return sysUserMapper.insertSelective(record);
-	}
-
-	@Override
-	public int update(SysUser record) {
+		if(record.getUserId() == null || record.getUserId() == 0) {
+			return sysUserMapper.insertSelective(record);
+		}
 		return sysUserMapper.updateByPrimaryKeySelective(record);
 	}
 
@@ -49,26 +47,26 @@ public class SysUserServiceImpl  implements SysUserService {
 	}
 
 	@Override
-	public SysUser findById(Long id) {
-		return sysUserMapper.selectByPrimaryKey(id);
+	public SysUser findById(Long userId) {
+		return sysUserMapper.selectByPrimaryKey(userId);
 	}
-
-	@Override
-	public SysUser findByUserName(String username) {
-		return sysUserMapper.findByUserName(username);
+	
+		@Override
+	public SysUser findByUserName(String userName) {
+		return sysUserMapper.findByUserName(userName);
 	}
 	
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		ColumnFilter columnFilter = pageRequest.getColumnFilter(NAME);
-		if(columnFilter != null) {
-			return MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", columnFilter.getValue());
+		ColumnFilter columnFilter = pageRequest.getColumnFilter("userName");
+		if(columnFilter != null && columnFilter.getValue() != null) {
+			return MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByUserName", columnFilter.getValue());
 		}
 		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 	}
 
 	@Override
-	public Set<String> findPermissions(String userName) {
+	public Set<String> findPermissions(String userName) {	
 		Set<String> perms = new HashSet<>();
 		List<SysMenu> sysMenus = sysMenuService.findByUser(userName);
 		for(SysMenu sysMenu:sysMenus) {

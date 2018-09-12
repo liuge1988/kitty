@@ -35,12 +35,10 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 
 	@Override
 	public int save(SysUserToken record) {
-		return sysUserTokenMapper.insertSelective(record);
-	}
-
-	@Override
-	public int update(SysUserToken record) {
-		return sysUserTokenMapper.updateByPrimaryKey(record);
+		if(record.getId() == null || record.getId() == 0) {
+			return sysUserTokenMapper.insertSelective(record);
+		}
+		return sysUserTokenMapper.updateByPrimaryKeySelective(record);
 	}
 
 	@Override
@@ -89,7 +87,7 @@ public class SysUserTokenServiceImpl implements SysUserTokenService {
 			sysUserToken.setLastUpdateTime(now);
 			sysUserToken.setExpireTime(expireTime);
 			// 如果token已经生成，则更新token的过期时间
-			update(sysUserToken);
+			save(sysUserToken);
 		}
 		return sysUserToken;
 	}

@@ -51,11 +51,11 @@ public class SysLoginController {
 	 */
 	@PostMapping(value = "/sys/login")
 	public HttpResult login(@RequestBody LoginBean loginBean) throws IOException {
-		String username = loginBean.getUsername();
+		String userName = loginBean.getAccount();
 		String password = loginBean.getPassword();
 
 		// 用户信息
-		SysUser user = sysUserService.findByUserName(username);
+		SysUser user = sysUserService.findByUserName(userName);
 
 		// 账号不存在、密码错误
 		if (user == null) {
