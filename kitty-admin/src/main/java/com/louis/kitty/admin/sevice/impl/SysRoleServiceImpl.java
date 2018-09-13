@@ -20,7 +20,7 @@ public class SysRoleServiceImpl  implements SysRoleService {
 
 	@Override
 	public int save(SysRole record) {
-		if(record.getRoleId() == null || record.getRoleId() == 0) {
+		if(record.getId() == null || record.getId() == 0) {
 			return sysRoleMapper.insertSelective(record);
 		}
 		return sysRoleMapper.updateByPrimaryKeySelective(record);
@@ -28,7 +28,7 @@ public class SysRoleServiceImpl  implements SysRoleService {
 
 	@Override
 	public int delete(SysRole record) {
-		return sysRoleMapper.deleteByPrimaryKey(record.getRoleId());
+		return sysRoleMapper.deleteByPrimaryKey(record.getId());
 	}
 
 	@Override

@@ -6,9 +6,9 @@ import java.util.UUID;
 import com.louis.kitty.core.exception.KittyException;
 
 /**
- * token generator
+ * token 生成器
  * @author Louis
- * @date Aug 21, 2018
+ * @date Sep 1, 2018
  */
 public class TokenGenerator {
 

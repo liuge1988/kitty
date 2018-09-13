@@ -3,7 +3,7 @@
 <mapper namespace="com.louis.kitty.admin.dao.SysLogMapper">
   <resultMap id="BaseResultMap" type="com.louis.kitty.admin.model.SysLog">
     <id column="id" jdbcType="BIGINT" property="id" />
-    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="operation" jdbcType="VARCHAR" property="operation" />
     <result column="method" jdbcType="VARCHAR" property="method" />
     <result column="params" jdbcType="VARCHAR" property="params" />
@@ -15,7 +15,7 @@
     <result column="last_update_time" jdbcType="TIMESTAMP" property="lastUpdateTime" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, username, operation, method, params, time, ip, create_by, create_time, last_update_by, 
+    id, user_name, operation, method, params, time, ip, create_by, create_time, last_update_by, 
     last_update_time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
@@ -29,11 +29,11 @@
     where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.louis.kitty.admin.model.SysLog">
-    insert into sys_log (id, username, operation, 
+    insert into sys_log (id, user_name, operation, 
       method, params, time, 
       ip, create_by, create_time, 
       last_update_by, last_update_time)
-    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{operation,jdbcType=VARCHAR}, 
       #{method,jdbcType=VARCHAR}, #{params,jdbcType=VARCHAR}, #{time,jdbcType=BIGINT}, 
       #{ip,jdbcType=VARCHAR}, #{createBy,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, 
       #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP})
@@ -44,8 +44,8 @@
       <if test="id != null">
         id,
       </if>
-      <if test="username != null">
-        username,
+      <if test="userName != null">
+        user_name,
       </if>
       <if test="operation != null">
         operation,
@@ -79,8 +79,8 @@
       <if test="id != null">
         #{id,jdbcType=BIGINT},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
       <if test="operation != null">
         #{operation,jdbcType=VARCHAR},
@@ -114,8 +114,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.louis.kitty.admin.model.SysLog">
     update sys_log
     <set>
-      <if test="username != null">
-        username = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
       </if>
       <if test="operation != null">
         operation = #{operation,jdbcType=VARCHAR},
@@ -149,7 +149,7 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.louis.kitty.admin.model.SysLog">
     update sys_log
-    set username = #{username,jdbcType=VARCHAR},
+    set user_name = #{userName,jdbcType=VARCHAR},
       operation = #{operation,jdbcType=VARCHAR},
       method = #{method,jdbcType=VARCHAR},
       params = #{params,jdbcType=VARCHAR},
@@ -167,10 +167,10 @@
     from sys_log
   </select>
   <select id="findPageByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
-  	<bind name="pattern" value="'%' + _parameter.username + '%'" />
+  	<bind name="pattern" value="'%' + _parameter.userName + '%'" />
     select 
     <include refid="Base_Column_List" />
     from sys_log
-    where username like #{pattern}
+    where user_name like #{pattern}
   </select>
 </mapper>

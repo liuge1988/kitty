@@ -21,5 +21,5 @@ public interface SysLogMapper {
     
     List<SysLog> findPage();
     
-    List<SysLog> findPageByUserName(@Param(value="username") String username);
+    List<SysLog> findPageByUserName(@Param(value="userName") String userName);
 }

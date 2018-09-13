@@ -16,6 +16,7 @@ import com.louis.kitty.admin.model.SysUserToken;
 import com.louis.kitty.admin.sevice.SysUserService;
 import com.louis.kitty.admin.sevice.SysUserTokenService;
 import com.louis.kitty.admin.util.PasswordUtils;
+import com.louis.kitty.admin.util.ShiroUtils;
 import com.louis.kitty.admin.vo.LoginBean;
 import com.louis.kitty.core.http.HttpResult;
 
@@ -55,7 +56,7 @@ public class SysLoginController {
 		String password = loginBean.getPassword();
 
 		// 用户信息
-		SysUser user = sysUserService.findByUserName(userName);
+		SysUser user = sysUserService.findByName(userName);
 
 		// 账号不存在、密码错误
 		if (user == null) {
@@ -72,7 +73,7 @@ public class SysLoginController {
 		}
 
 		// 生成token，并保存到数据库
-		SysUserToken data = sysUserTokenService.createToken(user.getUserId());
+		SysUserToken data = sysUserTokenService.createToken(user.getId());
 		return HttpResult.ok(data);
 	}
 
@@ -84,5 +85,14 @@ public class SysLoginController {
 	 */
 	public boolean match(SysUser user, String password) {
 		return user.getPassword().equals(PasswordUtils.encrypte(password, user.getSalt()));
+	}
+	
+	/**
+	 * 登出接口
+	 */
+	@GetMapping(value = "/sys/logout")
+	public HttpResult logout() {
+		ShiroUtils.logout();
+		return HttpResult.ok();
 	}
 }

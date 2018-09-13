@@ -1,5 +1,7 @@
 package com.louis.kitty.admin.util;
 
+import java.util.UUID;
+
 import org.apache.shiro.crypto.hash.Sha256Hash;
 
 /**
@@ -31,5 +33,13 @@ public class PasswordUtils {
 	 */
 	public static String encrypte(String password, String salt) {
 		return new Sha256Hash(password, salt).toHex();
+	}
+
+	/**
+	 * 获取加密盐
+	 * @return
+	 */
+	public static String getSalt() {
+		return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 20);
 	}
 }

@@ -7,13 +7,13 @@ import org.apache.ibatis.annotations.Param;
 import com.louis.kitty.admin.model.SysUser;
 
 public interface SysUserMapper {
-    int deleteByPrimaryKey(Long userId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(SysUser record);
 
     int insertSelective(SysUser record);
 
-    SysUser selectByPrimaryKey(Long userId);
+    SysUser selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(SysUser record);
 
@@ -21,7 +21,7 @@ public interface SysUserMapper {
     
     List<SysUser> findPage();
     
-    SysUser findByUserName(@Param(value="userName") String userName);
+    SysUser findByName(@Param(value="name") String name);
     
-	List<SysUser> findPageByUserName(@Param(value="userName") String userName);
+	List<SysUser> findPageByName(@Param(value="name") String name);
 }

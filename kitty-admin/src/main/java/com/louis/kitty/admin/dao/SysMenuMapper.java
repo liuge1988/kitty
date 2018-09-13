@@ -7,13 +7,13 @@ import org.apache.ibatis.annotations.Param;
 import com.louis.kitty.admin.model.SysMenu;
 
 public interface SysMenuMapper {
-    int deleteByPrimaryKey(Long menuId);
+    int deleteByPrimaryKey(Long id);
 
     int insert(SysMenu record);
 
     int insertSelective(SysMenu record);
 
-    SysMenu selectByPrimaryKey(Long menuId);
+    SysMenu selectByPrimaryKey(Long id);
 
     int updateByPrimaryKeySelective(SysMenu record);
 
@@ -25,5 +25,5 @@ public interface SysMenuMapper {
 	
 	List<SysMenu> findAll();
 
-	List<SysMenu> findByUserName(@Param(value="username") String username);
+	List<SysMenu> findByUserName(@Param(value="userName") String userName);
 }

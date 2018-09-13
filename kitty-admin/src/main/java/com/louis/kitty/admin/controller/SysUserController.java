@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.sevice.SysUserService;
+import com.louis.kitty.admin.util.PasswordUtils;
+import com.louis.kitty.admin.util.ShiroUtils;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
 
@@ -24,6 +26,15 @@ public class SysUserController {
 	
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody SysUser record) {
+		if(record.getPassword() != null) {
+			SysUser user = sysUserService.findById(record.getId());
+			if(user == null || !record.getPassword().equals(user.getPassword())) {
+				String salt = PasswordUtils.getSalt();
+				String password = PasswordUtils.encrypte(record.getPassword(), salt);
+				record.setSalt(salt);
+				record.setPassword(password);
+			}
+		}
 		return HttpResult.ok(sysUserService.save(record));
 	}
 
@@ -32,9 +43,14 @@ public class SysUserController {
 		return HttpResult.ok(sysUserService.delete(records));
 	}
 	
-	@GetMapping(value="/findByUserName")
-	public HttpResult findByUserName(@RequestParam String userName) {
-		return HttpResult.ok(sysUserService.findByUserName(userName));
+	@GetMapping(value="/findByName")
+	public HttpResult findByUserName(@RequestParam String name) {
+		return HttpResult.ok(sysUserService.findByName(name));
+	}
+	
+	@GetMapping(value="/findPermissions")
+	public HttpResult findPermissions(@RequestParam String name) {
+		return HttpResult.ok(sysUserService.findPermissions(name));
 	}
 
 	@PostMapping(value="/findPage")
@@ -47,15 +63,16 @@ public class SysUserController {
 	 */
 	@GetMapping("/updatePassword")
 	public HttpResult updatePassword(@RequestParam String password, @RequestParam String newPassword) {
-//		SysUser user = ShiroUtils.getUser();
-//		password = PasswordUtils.encrypte(password, user.getSalt());
-//		newPassword = PasswordUtils.encrypte(newPassword, user.getSalt());
-//		// 更新密码
-//		int count = HttpResult.ok(sysUserService.updatePassword(user.getUserId(), password, newPassword);
-//		if (count == 0) {
-//			return HttpResult.error("原密码不正确");
-//		}
-		return HttpResult.ok();
+		SysUser user = ShiroUtils.getUser();
+		if(user != null && password != null && newPassword != null) {
+			String oldPassword = PasswordUtils.encrypte(password, user.getSalt());
+			if(!oldPassword.equals(user.getPassword())) {
+				return HttpResult.error("原密码不正确");
+			}
+			user.setPassword(PasswordUtils.encrypte(newPassword, user.getSalt()));
+			HttpResult.ok(sysUserService.save(user));
+		}
+		return HttpResult.error();
 	}
 
 }

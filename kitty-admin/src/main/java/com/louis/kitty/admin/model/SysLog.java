@@ -1,11 +1,8 @@
 package com.louis.kitty.admin.model;
 
-import java.util.Date;
+public class SysLog extends BaseModel {
 
-public class SysLog {
-    private Long id;
-
-    private String username;
+    private String userName;
 
     private String operation;
 
@@ -17,99 +14,52 @@ public class SysLog {
 
     private String ip;
 
-    private Long createBy;
+	public String getUserName() {
+		return userName;
+	}
 
-    private Date createTime;
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    private Long lastUpdateBy;
+	public String getOperation() {
+		return operation;
+	}
 
-    private Date lastUpdateTime;
+	public void setOperation(String operation) {
+		this.operation = operation;
+	}
 
-    public Long getId() {
-        return id;
-    }
+	public String getMethod() {
+		return method;
+	}
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+	public void setMethod(String method) {
+		this.method = method;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public String getParams() {
+		return params;
+	}
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
-    }
+	public void setParams(String params) {
+		this.params = params;
+	}
 
-    public String getOperation() {
-        return operation;
-    }
+	public Long getTime() {
+		return time;
+	}
 
-    public void setOperation(String operation) {
-        this.operation = operation == null ? null : operation.trim();
-    }
+	public void setTime(Long time) {
+		this.time = time;
+	}
 
-    public String getMethod() {
-        return method;
-    }
+	public String getIp() {
+		return ip;
+	}
 
-    public void setMethod(String method) {
-        this.method = method == null ? null : method.trim();
-    }
+	public void setIp(String ip) {
+		this.ip = ip;
+	}
 
-    public String getParams() {
-        return params;
-    }
-
-    public void setParams(String params) {
-        this.params = params == null ? null : params.trim();
-    }
-
-    public Long getTime() {
-        return time;
-    }
-
-    public void setTime(Long time) {
-        this.time = time;
-    }
-
-    public String getIp() {
-        return ip;
-    }
-
-    public void setIp(String ip) {
-        this.ip = ip == null ? null : ip.trim();
-    }
-
-    public Long getCreateBy() {
-        return createBy;
-    }
-
-    public void setCreateBy(Long createBy) {
-        this.createBy = createBy;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Long getLastUpdateBy() {
-        return lastUpdateBy;
-    }
-
-    public void setLastUpdateBy(Long lastUpdateBy) {
-        this.lastUpdateBy = lastUpdateBy;
-    }
-
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
-    }
-
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
 }

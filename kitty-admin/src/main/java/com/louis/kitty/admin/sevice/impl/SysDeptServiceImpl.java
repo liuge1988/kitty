@@ -21,7 +21,7 @@ public class SysDeptServiceImpl implements SysDeptService {
 
 	@Override
 	public int save(SysDept record) {
-		if(record.getDeptId() == null || record.getDeptId() == 0) {
+		if(record.getId() == null || record.getId() == 0) {
 			return sysDeptMapper.insertSelective(record);
 		}
 		return sysDeptMapper.updateByPrimaryKeySelective(record);
@@ -29,7 +29,7 @@ public class SysDeptServiceImpl implements SysDeptService {
 
 	@Override
 	public int delete(SysDept record) {
-		return sysDeptMapper.deleteByPrimaryKey(record.getDeptId());
+		return sysDeptMapper.deleteByPrimaryKey(record.getId());
 	}
 
 	@Override
@@ -67,7 +67,7 @@ public class SysDeptServiceImpl implements SysDeptService {
 		for (SysDept sysDept : sysDepts) {
 			List<SysDept> children = new ArrayList<>();
 			for (SysDept dept : depts) {
-				if (sysDept.getDeptId() != null && sysDept.getDeptId().equals(dept.getParentId())) {
+				if (sysDept.getId() != null && sysDept.getId().equals(dept.getParentId())) {
 					children.add(dept);
 				}
 			}

@@ -16,7 +16,6 @@ import com.louis.kitty.common.utils.StringUtils;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.http.HttpStatus;
 
-
 /**
  * Oauth2过滤器
  * @author Louis
@@ -36,7 +35,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
 
     @Override
     protected boolean isAccessAllowed(ServletRequest request, ServletResponse response, Object mappedValue) {
-        return false;
+    	return false;
     }
 
     @Override
@@ -52,7 +51,7 @@ public class OAuth2Filter extends AuthenticatingFilter {
             HttpServletResponse httpResponse = (HttpServletResponse) response;
             HttpResult result = HttpResult.error(HttpStatus.SC_UNAUTHORIZED, "invalid token");
             String json = JSONObject.toJSONString(result);
-            httpResponse.getWriter().print(json);
+			httpResponse.getWriter().print(json);
             return false;
         }
         return executeLogin(request, response);

@@ -1,7 +1,5 @@
 package com.louis.kitty.admin.dao;
 
-import java.util.List;
-
 import com.louis.kitty.admin.model.SysRoleMenu;
 
 public interface SysRoleMenuMapper {

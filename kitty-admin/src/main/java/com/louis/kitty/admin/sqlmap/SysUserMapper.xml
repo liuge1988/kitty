@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.louis.kitty.admin.dao.SysUserMapper">
   <resultMap id="BaseResultMap" type="com.louis.kitty.admin.model.SysUser">
-    <id column="user_id" jdbcType="BIGINT" property="userId" />
-    <result column="userName" jdbcType="VARCHAR" property="userName" />
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="password" jdbcType="VARCHAR" property="password" />
     <result column="salt" jdbcType="VARCHAR" property="salt" />
     <result column="email" jdbcType="VARCHAR" property="email" />
@@ -17,26 +17,26 @@
     <result column="del_flag" jdbcType="TINYINT" property="delFlag" />
   </resultMap>
   <sql id="Base_Column_List">
-    user_id, userName, password, salt, email, mobile, status, dept_id, create_by, create_time, 
+    id, name, password, salt, email, mobile, status, dept_id, create_by, create_time, 
     last_update_by, last_update_time, del_flag
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from sys_user
-    where user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
     delete from sys_user
-    where user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </delete>
   <insert id="insert" parameterType="com.louis.kitty.admin.model.SysUser">
-    insert into sys_user (user_id, userName, password, 
+    insert into sys_user (id, name, password, 
       salt, email, mobile, 
       status, dept_id, create_by, 
       create_time, last_update_by, last_update_time, 
       del_flag)
-    values (#{userId,jdbcType=BIGINT}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=BIGINT}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
       #{salt,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, 
       #{status,jdbcType=TINYINT}, #{deptId,jdbcType=BIGINT}, #{createBy,jdbcType=BIGINT}, 
       #{createTime,jdbcType=TIMESTAMP}, #{lastUpdateBy,jdbcType=BIGINT}, #{lastUpdateTime,jdbcType=TIMESTAMP}, 
@@ -45,11 +45,11 @@
   <insert id="insertSelective" parameterType="com.louis.kitty.admin.model.SysUser">
     insert into sys_user
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        user_id,
+      <if test="id != null">
+        id,
       </if>
-      <if test="userName != null">
-        userName,
+      <if test="name != null">
+        name,
       </if>
       <if test="password != null">
         password,
@@ -86,11 +86,11 @@
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userId != null">
-        #{userId,jdbcType=BIGINT},
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
       </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         #{password,jdbcType=VARCHAR},
@@ -130,8 +130,8 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.louis.kitty.admin.model.SysUser">
     update sys_user
     <set>
-      <if test="userName != null">
-        userName = #{userName,jdbcType=VARCHAR},
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
@@ -167,11 +167,11 @@
         del_flag = #{delFlag,jdbcType=TINYINT},
       </if>
     </set>
-    where user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.louis.kitty.admin.model.SysUser">
     update sys_user
-    set userName = #{userName,jdbcType=VARCHAR},
+    set name = #{name,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       salt = #{salt,jdbcType=VARCHAR},
       email = #{email,jdbcType=VARCHAR},
@@ -183,18 +183,18 @@
       last_update_by = #{lastUpdateBy,jdbcType=BIGINT},
       last_update_time = #{lastUpdateTime,jdbcType=TIMESTAMP},
       del_flag = #{delFlag,jdbcType=TINYINT}
-    where user_id = #{userId,jdbcType=BIGINT}
+    where id = #{id,jdbcType=BIGINT}
   </update>
   <select id="findPage" resultMap="BaseResultMap">
-    select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
+    select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
   </select>
-  <select id="findByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
-    where u.userName = #{userName,jdbcType=VARCHAR}
+  <select id="findByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
+    where u.name = #{name,jdbcType=VARCHAR}
   </select>
-  <select id="findPageByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
-  	<bind name="pattern" value="'%' + _parameter.userName + '%'" />
-    select u.*, (select d.name from sys_dept d where d.dept_id = u.dept_id) deptName from sys_user u
-    where u.userName like #{pattern}
+  <select id="findPageByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	<bind name="pattern" value="'%' + _parameter.name + '%'" />
+    select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
+    where u.name like #{pattern}
   </select>
 </mapper>

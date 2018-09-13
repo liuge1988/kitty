@@ -46,6 +46,13 @@ public class SysLogAspect {
 	}
 
 	private void saveSysLog(ProceedingJoinPoint joinPoint, long time) {
+		if(ShiroUtils.getUser() == null) {
+			return ;
+		}
+		String userName = ShiroUtils.getUser().getName();
+		if(joinPoint.getTarget() instanceof SysLogService) {
+			return ;
+		}
 		MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 		SysLog sysLog = new SysLog();
 		
@@ -65,6 +72,9 @@ public class SysLogAspect {
 		Object[] args = joinPoint.getArgs();
 		try{
 			String params = JSONObject.toJSONString(args[0]);
+			if(params.length() > 200) {
+				params = params.substring(0, 200) + "...";
+			}
 			sysLog.setParams(params);
 		} catch (Exception e){
 		}
@@ -75,14 +85,13 @@ public class SysLogAspect {
 		sysLog.setIp(IPUtils.getIpAddr(request));
 
 		// 用户名
-		String username = ShiroUtils.getUserName();
-		sysLog.setUsername(username);
+		sysLog.setUserName(userName);
 		
 		// 执行时长(毫秒)
 		sysLog.setTime(time);
 		
 		// 保存系统日志
-//		sysLogService.save(sysLog);
+		sysLogService.save(sysLog);
 	}
 
 	

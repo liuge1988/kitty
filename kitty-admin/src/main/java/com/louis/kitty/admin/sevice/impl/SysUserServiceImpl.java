@@ -27,7 +27,7 @@ public class SysUserServiceImpl  implements SysUserService {
 
 	@Override
 	public int save(SysUser record) {
-		if(record.getUserId() == null || record.getUserId() == 0) {
+		if(record.getId() == null || record.getId() == 0) {
 			return sysUserMapper.insertSelective(record);
 		}
 		return sysUserMapper.updateByPrimaryKeySelective(record);
@@ -35,7 +35,7 @@ public class SysUserServiceImpl  implements SysUserService {
 
 	@Override
 	public int delete(SysUser record) {
-		return sysUserMapper.deleteByPrimaryKey(record.getUserId());
+		return sysUserMapper.deleteByPrimaryKey(record.getId());
 	}
 
 	@Override
@@ -47,13 +47,13 @@ public class SysUserServiceImpl  implements SysUserService {
 	}
 
 	@Override
-	public SysUser findById(Long userId) {
-		return sysUserMapper.selectByPrimaryKey(userId);
+	public SysUser findById(Long id) {
+		return sysUserMapper.selectByPrimaryKey(id);
 	}
 	
-		@Override
-	public SysUser findByUserName(String userName) {
-		return sysUserMapper.findByUserName(userName);
+	@Override
+	public SysUser findByName(String name) {
+		return sysUserMapper.findByName(name);
 	}
 	
 	@Override

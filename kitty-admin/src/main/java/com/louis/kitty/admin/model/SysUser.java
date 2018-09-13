@@ -1,11 +1,8 @@
 package com.louis.kitty.admin.model;
 
-import java.util.Date;
+public class SysUser extends BaseModel {
 
-public class SysUser {
-    private Long userId;
-
-    private String userName;
+    private String name;
 
     private String password;
 
@@ -21,81 +18,65 @@ public class SysUser {
     
     private String deptName;
 
-    private Long createBy;
-
-    private Date createTime;
-
-    private Long lastUpdateBy;
-
-    private Date lastUpdateTime;
-
     private Byte delFlag;
 
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
-    public String getUserName() {
-		return userName;
+	public String getName() {
+		return name;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
-        return password;
-    }
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	public void setPassword(String password) {
+		this.password = password;
+	}
 
-    public String getSalt() {
-        return salt;
-    }
+	public String getSalt() {
+		return salt;
+	}
 
-    public void setSalt(String salt) {
-        this.salt = salt == null ? null : salt.trim();
-    }
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
 
-    public String getEmail() {
-        return email;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public String getMobile() {
-        return mobile;
-    }
+	public String getMobile() {
+		return mobile;
+	}
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
-    }
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
 
-    public Byte getStatus() {
-        return status;
-    }
+	public Byte getStatus() {
+		return status;
+	}
 
-    public void setStatus(Byte status) {
-        this.status = status;
-    }
+	public void setStatus(Byte status) {
+		this.status = status;
+	}
 
-    public Long getDeptId() {
-        return deptId;
-    }
+	public Long getDeptId() {
+		return deptId;
+	}
 
-    public void setDeptId(Long deptId) {
-        this.deptId = deptId;
-    }
+	public void setDeptId(Long deptId) {
+		this.deptId = deptId;
+	}
 
-    public String getDeptName() {
+	public String getDeptName() {
 		return deptName;
 	}
 
@@ -103,43 +84,12 @@ public class SysUser {
 		this.deptName = deptName;
 	}
 
-	public Long getCreateBy() {
-        return createBy;
-    }
+	public Byte getDelFlag() {
+		return delFlag;
+	}
 
-    public void setCreateBy(Long createBy) {
-        this.createBy = createBy;
-    }
+	public void setDelFlag(Byte delFlag) {
+		this.delFlag = delFlag;
+	}
 
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Long getLastUpdateBy() {
-        return lastUpdateBy;
-    }
-
-    public void setLastUpdateBy(Long lastUpdateBy) {
-        this.lastUpdateBy = lastUpdateBy;
-    }
-
-    public Date getLastUpdateTime() {
-        return lastUpdateTime;
-    }
-
-    public void setLastUpdateTime(Date lastUpdateTime) {
-        this.lastUpdateTime = lastUpdateTime;
-    }
-
-    public Byte getDelFlag() {
-        return delFlag;
-    }
-
-    public void setDelFlag(Byte delFlag) {
-        this.delFlag = delFlag;
-    }
 }
