@@ -5,9 +5,40 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 目标是搭建出一套简洁易用的快速解决方案，可以帮助用户有效降低项目开发难度和成本。
 个人博客提供本项目开发过程同步系列教程文章，手把手的教你如何开发同类系统。
 
-#### 软件架构
-后端架构
+#### 软件架构（后端）
 
+##### 开发环境
+
+- IDE : eclipse 4.x
+- JDK : JDK1.8.x
+- Maven : Maven 3.5.x
+- MySQL: MySQL 5.7.x
+
+##### 技术选型
+
+- 核心框架：Spring Boot 2.x
+- 安全框架：Apache Shiro 1.4.x
+- 视图框架：Spring MVC 5.x
+- 持久层框架：MyBatis 3.x
+- 定时器：Quartz 2.x
+- 数据库连接池：Druid 1.x
+- 日志管理：SLF4J、Log4j
+
+#### 软件架构（前端）
+
+##### 开发环境
+
+- IDE : VS Code 1.27
+- NODE: Node 8.9.x
+- NPM : NPM 6.4.x
+
+##### 技术选型
+
+- 前端框架：Vue 2.x
+- 页面组件：Element 2.x
+- 状态管理：Vuex 2.x
+- 后台交互：axios 0.18.x
+- 图标使用：Font Awesome 4.x
 
 
 #### 安装教程
