@@ -24,6 +24,14 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 - 数据库连接池：Druid 1.x
 - 日志管理：SLF4J、Log4j
 
+##### 项目结构
+
+- kitty-pom： 统一管理 Maven 版本，打包配置
+- kitty-common： 公共代码模块，主要放置工具类
+- kitty-core： 核心代码模块，主要封装公共业务模块
+- kitty-admin： 后台管理模块，包含用户、角色、菜单管理等
+- kitty-boot： Spring Boot 启动模块，包含一些全局配置信息
+
 #### 软件架构（前端）
 
 ##### 开发环境
@@ -39,6 +47,19 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 - 状态管理：Vuex 2.x
 - 后台交互：axios 0.18.x
 - 图标使用：Font Awesome 4.x
+
+##### 项目结构
+
+- assets： 图标、字体、国际化信息等静态信息
+- components： 组件库，对常用组件进行封装
+- http： 后台交互模块，统一后台接口请求API
+- i18n： 国际化模块，使用Vue i18n进行国际化
+- mock： Mock模块，模拟接口调用并返回定制数据
+- permission： 权限控制模块，处理权限认证逻辑
+- router： 路由管理模块，负责页面各种路由配置
+- store： 状态管理模块，提供组件间状态共享
+- utils： 工具模块，提供一些通用的工具方法
+- views： 页面模块，主要放置各种页面视图组件
 
 
 #### 安装教程
