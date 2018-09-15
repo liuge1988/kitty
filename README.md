@@ -1,10 +1,13 @@
 # kitty
 
 #### 项目介绍
-基于Spring Boot、Spring Cloud实现的Java快速开发平台。
+Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开发平台。
+目标是搭建出一套简洁易用的快速解决方案，可以帮助用户有效降低项目开发难度和成本。
+个人博客提供本项目开发过程同步系列教程文章，手把手的教你如何开发同类系统。
 
 #### 软件架构
-软件架构说明
+后端架构
+
 
 
 #### 安装教程
