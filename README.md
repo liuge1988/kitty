@@ -22,7 +22,9 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 - 服务限流：结合微服务治理，实现有效的服务限流
 - ...
 
-### 软件架构（后端）
+### 软件架构
+
+#### 后端架构
 
 ##### 开发环境
 
@@ -49,7 +51,7 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 - kitty-admin： 后台管理模块，包含用户、角色、菜单管理等
 - kitty-boot： Spring Boot 启动模块，包含一些全局配置信息
 
-### 软件架构（前端）
+#### 前端架构
 
 ##### 开发环境
 
@@ -79,19 +81,60 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 - views： 页面模块，主要放置各种页面视图组件
 
 
-#### 安装教程
+### 安装教程
+
+#### 后端安装
+
+1. 下载源码
+
+git clone https://gitee.com/liuge1988/kitty.git
+
+2. 导入工程
+
+使用 Eclipse导入 Maven 项目，在此之前请确认已安装 JDK 和 Maven 工具。
+
+3. 编译代码
+
+找到 kitty-pom 工程的 pom.xml，执行 maven clean install 命令编译打包。
+
+4. 导入数据库
+
+新建 kitty 数据库，导入 kitty-pom 工程 doc 下的 SQL 脚本，导入初始化数据库。
+
+5. 启动系统
+
+找到 kitty-boot 工程下的 KittyApplication.java, 执行 Java 程序，启动项目。
+
+#### 前端安装
+
+1. 下载源码
+
+git clone https://gitee.com/liuge1988/kitty-ui.git
+
+2. 编译代码
+
+进入项目根目录，执行 npm install, 下载安装项目依赖包。
+
+3. 启动系统
+
+执行 npm run dev 命令，启动项目，通过 http://localhost:8090 访问。
+
+4. 项目打包
+
+执行 npm run build 命令，启动打包，完成之后会生成 dist 目录。
+
+5. Mock 开关
+
+通过修改src/mock/index.js中的openMock变量，可以一键开启或关闭Mock功能。
+
+
+### 使用说明
 
 1. xxxx
 2. xxxx
 3. xxxx
 
-#### 使用说明
-
-1. xxxx
-2. xxxx
-3. xxxx
-
-#### 参与贡献
+### 参与贡献
 
 1. Fork 本项目
 2. 新建 Feat_xxx 分支
@@ -99,7 +142,7 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 4. 新建 Pull Request
 
 
-#### 码云特技
+### 码云特技
 
 1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
 2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
