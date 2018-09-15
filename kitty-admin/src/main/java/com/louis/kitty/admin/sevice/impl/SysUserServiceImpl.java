@@ -58,9 +58,9 @@ public class SysUserServiceImpl  implements SysUserService {
 	
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		ColumnFilter columnFilter = pageRequest.getColumnFilter("userName");
+		ColumnFilter columnFilter = pageRequest.getColumnFilter("name");
 		if(columnFilter != null && columnFilter.getValue() != null) {
-			return MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByUserName", columnFilter.getValue());
+			return MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", columnFilter.getValue());
 		}
 		return MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 	}

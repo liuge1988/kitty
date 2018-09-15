@@ -66,7 +66,7 @@ CREATE TABLE `sys_menu` (
   `name` varchar(50) COMMENT '菜单名称',
   `parent_id` bigint COMMENT '父菜单ID，一级菜单为0',
   `url` varchar(200) COMMENT '菜单URL',
-  `perms` varchar(500) COMMENT '授权(多个用逗号分隔，如：user:list,user:create)',
+  `perms` varchar(500) COMMENT '授权(多个用逗号分隔，如：sys:user:add,sys:user:edit)',
   `type` int COMMENT '类型   0：目录   1：菜单   2：按钮',
   `icon` varchar(50) COMMENT '菜单图标',
   `order_num` int COMMENT '排序',
@@ -191,18 +191,18 @@ CREATE TABLE `sys_dict` (
 -- --------------------------------------
 --  Records of `sys_user`
 -- --------------------------------------
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'admin@qq.com', '13612345678', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('2', 'Louis', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'louis@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('3', 'Kobe', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'kobe@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('4', 'Iverson', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('5', 'Iverson5', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('6', 'Iverson6', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('7', 'Iverson7', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('8', 'Iverson8', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('9', 'Iverson9', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('10', 'Iverson10', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('11', 'Iverson11', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
-INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `email`, `mobile`, `status`, `create_time`) VALUES ('12', 'Iverson12', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '4', 'admin@qq.com', '13612345678', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('2', 'Louis', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '6', 'louis@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('3', 'Kobe', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '7', 'kobe@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('4', 'Iverson', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '8', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('5', 'Iverson5', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '12', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('6', 'Iverson6', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '12', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('7', 'Iverson7', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '13', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('8', 'Iverson8', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '14', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('9', 'Iverson9', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '15', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('10', 'Iverson10', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '4', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('11', 'Iverson11', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '6', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
+INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`) VALUES ('12', 'Iverson12', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '15', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11');
 -- --------------------------------------
 --  Records of `sys_role`
 -- --------------------------------------
@@ -242,22 +242,22 @@ INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('4', '1', '角色管理', '/sys/role', NULL, '1', 'el-icon-view', '4');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('5', '1', '菜单管理', '/sys/menu', NULL, '1', 'el-icon-menu', '5');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('6', '1', 'SQL监控', '/druid/sql', NULL, '1', 'el-icon-info', '6');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('8', '1', '系统日志', '/sys/log', 'sys:log:list', '1', 'el-icon-info', '7');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('8', '1', '系统日志', '/sys/log', 'sys:log:view', '1', 'el-icon-info', '7');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('9', '2', '查看', NULL, 'sys:user:view', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('10', '2', '新增', NULL, 'sys:user:save', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('11', '2', '修改', NULL, 'sys:user:update', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('10', '2', '新增', NULL, 'sys:user:add', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('11', '2', '修改', NULL, 'sys:user:edit', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('12', '2', '删除', NULL, 'sys:user:delete', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('13', '3', '查看', NULL, 'sys:dept:view', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('14', '3', '新增', NULL, 'sys:dept:save', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('15', '3', '修改', NULL, 'sys:dept:update', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('14', '3', '新增', NULL, 'sys:dept:add', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('15', '3', '修改', NULL, 'sys:dept:edit', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('16', '3', '删除', NULL, 'sys:dept:delete', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('17', '4', '查看', NULL, 'sys:role:view', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('18', '4', '新增', NULL, 'sys:role:save', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('19', '4', '修改', NULL, 'sys:role:update', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('18', '4', '新增', NULL, 'sys:role:add', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('19', '4', '修改', NULL, 'sys:role:edit', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('20', '4', '删除', NULL, 'sys:role:delete', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('21', '5', '查看', NULL, 'sys:menu:view', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('22', '5', '新增', NULL, 'sys:menu:save', '2', NULL, '0');
-INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('23', '5', '修改', NULL, 'sys:menu:update', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('22', '5', '新增', NULL, 'sys:menu:add', '2', NULL, '0');
+INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('23', '5', '修改', NULL, 'sys:menu:edit', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('24', '5', '删除', NULL, 'sys:menu:delete', '2', NULL, '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('25', '0', '内容管理', NULL, NULL, '0', 'el-icon-document', '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('26', '25', '栏目管理', '/content/category', NULL, '1', 'el-icon-tickets', '1');
