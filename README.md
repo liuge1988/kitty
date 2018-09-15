@@ -87,45 +87,45 @@ Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开�
 
 1. 下载源码
 
-git clone https://gitee.com/liuge1988/kitty.git
+    git clone https://gitee.com/liuge1988/kitty.git
 
 2. 导入工程
 
-使用 Eclipse导入 Maven 项目，在此之前请确认已安装 JDK 和 Maven 工具。
+    使用 Eclipse导入 Maven 项目，在此之前请确认已安装 JDK 和 Maven 工具。
 
 3. 编译代码
 
-找到 kitty-pom 工程的 pom.xml，执行 maven clean install 命令编译打包。
+    找到 kitty-pom 工程的 pom.xml，执行 maven clean install 命令编译打包。
 
 4. 导入数据库
 
-新建 kitty 数据库，导入 kitty-pom 工程 doc 下的 SQL 脚本，导入初始化数据库。
+    新建 kitty 数据库，导入 kitty-pom 工程 doc 下的 SQL 脚本，导入初始化数据库。
 
 5. 启动系统
 
-找到 kitty-boot 工程下的 KittyApplication.java, 执行 Java 程序，启动项目。
+    找到 kitty-boot 工程下的 KittyApplication.java, 执行 Java 程序，启动项目。
 
 #### 前端安装
 
 1. 下载源码
 
-git clone https://gitee.com/liuge1988/kitty-ui.git
+    git clone https://gitee.com/liuge1988/kitty-ui.git
 
 2. 编译代码
 
-进入项目根目录，执行 npm install, 下载安装项目依赖包。
+    进入项目根目录，执行 npm install, 下载安装项目依赖包。
 
 3. 启动系统
 
-执行 npm run dev 命令，启动项目，通过 http://localhost:8090 访问。
+    执行 npm run dev 命令，启动项目，通过 http://localhost:8090 访问。
 
 4. 项目打包
 
-执行 npm run build 命令，启动打包，完成之后会生成 dist 目录。
+    执行 npm run build 命令，启动打包，完成之后会生成 dist 目录。
 
 5. Mock 开关
 
-通过修改src/mock/index.js中的openMock变量，可以一键开启或关闭Mock功能。
+    通过修改src/mock/index.js中的openMock变量，可以一键开启或关闭Mock功能。
 
 
 ### 使用说明
