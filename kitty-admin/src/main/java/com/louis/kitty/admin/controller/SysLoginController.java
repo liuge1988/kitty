@@ -50,7 +50,7 @@ public class SysLoginController {
 	/**
 	 * 登录接口
 	 */
-	@PostMapping(value = "/sys/login")
+	@PostMapping(value = "/login")
 	public HttpResult login(@RequestBody LoginBean loginBean) throws IOException {
 		String userName = loginBean.getAccount();
 		String password = loginBean.getPassword();
@@ -90,7 +90,7 @@ public class SysLoginController {
 	/**
 	 * 登出接口
 	 */
-	@GetMapping(value = "/sys/logout")
+	@GetMapping(value = "/logout")
 	public HttpResult logout() {
 		ShiroUtils.logout();
 		return HttpResult.ok();

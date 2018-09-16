@@ -2,6 +2,8 @@ package com.louis.kitty.admin.dao;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.louis.kitty.admin.model.SysDict;
 
 public interface SysDictMapper {
@@ -18,4 +20,6 @@ public interface SysDictMapper {
     int updateByPrimaryKey(SysDict record);
     
     List<SysDict> findPage();
+    
+    List<SysDict> findPageByLabel(@Param(value="label") String label);
 }

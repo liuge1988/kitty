@@ -47,7 +47,7 @@ public class SysLogServiceImpl  implements SysLogService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
-		ColumnFilter columnFilter = pageRequest.getColumnFilter("UserName");
+		ColumnFilter columnFilter = pageRequest.getColumnFilter("userName");
 		if(columnFilter != null) {
 			return MybatisPageHelper.findPage(pageRequest, sysLogMapper, "findPageByUserName", columnFilter.getValue());
 		}

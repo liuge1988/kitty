@@ -136,4 +136,11 @@
     <include refid="Base_Column_List" />
     from sys_role
   </select>
+  <select id="findPageByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	<bind name="pattern" value="'%' + _parameter.name + '%'" />
+  	select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where name like #{pattern}
+  </select>
 </mapper>

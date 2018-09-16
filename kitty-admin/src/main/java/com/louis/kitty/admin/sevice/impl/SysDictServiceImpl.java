@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.louis.kitty.admin.dao.SysDictMapper;
 import com.louis.kitty.admin.model.SysDict;
 import com.louis.kitty.admin.sevice.SysDictService;
+import com.louis.kitty.core.page.ColumnFilter;
 import com.louis.kitty.core.page.MybatisPageHelper;
 import com.louis.kitty.core.page.PageRequest;
 import com.louis.kitty.core.page.PageResult;
@@ -46,6 +47,10 @@ public class SysDictServiceImpl  implements SysDictService {
 
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
+		ColumnFilter columnFilter = pageRequest.getColumnFilter("label");
+		if(columnFilter != null) {
+			return MybatisPageHelper.findPage(pageRequest, sysDictMapper, "findPageByLabel", columnFilter.getValue());
+		}
 		return MybatisPageHelper.findPage(pageRequest, sysDictMapper);
 	}
 	
