@@ -20,8 +20,13 @@ public class SysMenu extends BaseModel {
 
     private Byte delFlag;
 
+    // 非数据库字段
+    private String parentName;
+    // 非数据库字段
+    private Integer level;
+    // 非数据库字段
     private List<SysMenu> children;
-
+    
 	public Long getParentId() {
 		return parentId;
 	}
@@ -93,5 +98,21 @@ public class SysMenu extends BaseModel {
 	public void setChildren(List<SysMenu> children) {
 		this.children = children;
 	}
-    
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
+	}
+
+	public String getParentName() {
+		return parentName;
+	}
+
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
+	}
+	
 }
