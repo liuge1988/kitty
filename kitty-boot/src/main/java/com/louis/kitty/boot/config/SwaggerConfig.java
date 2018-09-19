@@ -37,11 +37,12 @@ public class SwaggerConfig {
     }
 
     private ApiInfo apiInfo(){
-        return new ApiInfoBuilder()
-        		.title("Kitty API Doc")
-        		.description("This is a restful api document of Kitty.")
-                .version("1.0")
-                .build();
+//    	return new ApiInfoBuilder()
+//    			.title("Kitty API Doc")
+//    			.description("This is a restful api document of Kitty.")
+//    			.version("1.0")
+//    			.build();
+        return new ApiInfoBuilder().build();
     }
 
 }

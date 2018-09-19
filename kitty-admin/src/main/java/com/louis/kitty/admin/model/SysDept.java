@@ -4,15 +4,28 @@ import java.util.List;
 
 public class SysDept extends BaseModel {
 
-    private Long parentId;
-
     private String name;
+    
+    private Long parentId;
 
     private Integer orderNum;
 
     private Byte delFlag;
     
     private List<SysDept> children;
+    
+    // 非数据库字段
+    private String parentName;
+    // 非数据库字段
+    private Integer level;
+    
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public Long getParentId() {
 		return parentId;
@@ -22,12 +35,12 @@ public class SysDept extends BaseModel {
 		this.parentId = parentId;
 	}
 
-	public String getName() {
-		return name;
+	public String getParentName() {
+		return parentName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setParentName(String parentName) {
+		this.parentName = parentName;
 	}
 
 	public Integer getOrderNum() {
@@ -52,6 +65,14 @@ public class SysDept extends BaseModel {
 
 	public void setChildren(List<SysDept> children) {
 		this.children = children;
+	}
+
+	public Integer getLevel() {
+		return level;
+	}
+
+	public void setLevel(Integer level) {
+		this.level = level;
 	}
 
 }
