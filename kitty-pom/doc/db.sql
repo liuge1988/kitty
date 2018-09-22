@@ -3,6 +3,7 @@
 -- ----------------------------------------------------
 --  Table structure for `sys_user`
 -- ----------------------------------------------------
+DROP TABLE IF EXISTS `sys_user`;
 CREATE TABLE `sys_user` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(50) NOT NULL COMMENT '用户名',
@@ -26,6 +27,7 @@ CREATE TABLE `sys_user` (
 -- ------------------------------------------------
 --  Table structure for `sys_dept`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_dept`;
 CREATE TABLE `sys_dept` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(50) COMMENT '机构名称',
@@ -44,6 +46,7 @@ CREATE TABLE `sys_dept` (
 -- ------------------------------------------------
 --  Table structure for `sys_role`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(100) COMMENT '角色名称',
@@ -61,6 +64,7 @@ CREATE TABLE `sys_role` (
 -- ------------------------------------------------
 --  Table structure for `sys_menu`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_menu`;
 CREATE TABLE `sys_menu` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `name` varchar(50) COMMENT '菜单名称',
@@ -83,6 +87,7 @@ CREATE TABLE `sys_menu` (
 -- ------------------------------------------------
 --  Table structure for `sys_user_role`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_user_role`;
 CREATE TABLE `sys_user_role` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `user_id` bigint COMMENT '用户ID',
@@ -99,6 +104,7 @@ CREATE TABLE `sys_user_role` (
 -- ------------------------------------------------
 --  Table structure for `sys_role_dept`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_role_dept`;
 CREATE TABLE `sys_role_dept` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `role_id` bigint COMMENT '角色ID',
@@ -115,6 +121,7 @@ CREATE TABLE `sys_role_dept` (
 -- ------------------------------------------------
 --  Table structure for `sys_role_menu`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_role_menu`;
 CREATE TABLE `sys_role_menu` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `role_id` bigint COMMENT '角色ID',
@@ -131,6 +138,7 @@ CREATE TABLE `sys_role_menu` (
 -- ------------------------------------------------
 --  Table structure for `sys_user_token`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_user_token`;
 CREATE TABLE `sys_user_token` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `user_id` bigint NOT NULL,
@@ -149,6 +157,7 @@ CREATE TABLE `sys_user_token` (
 -- ------------------------------------------------
 --  Table structure for `sys_log`
 -- ------------------------------------------------
+DROP TABLE IF EXISTS `sys_log`;
 CREATE TABLE `sys_log` (
   `id` bigint NOT NULL AUTO_INCREMENT COMMENT '编号',
   `user_name` varchar(50) COMMENT '用户名',
@@ -191,6 +200,7 @@ CREATE TABLE `sys_dict` (
 -- --------------------------------------
 --  Records of `sys_user`
 -- --------------------------------------
+LOCK TABLES `sys_user` WRITE;
 INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '4', 'admin@qq.com', '13612345678', '1', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
 INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('2', 'Louis', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '6', 'louis@qq.com', '18200932238', '1', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
 INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('3', 'Kobe', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '7', 'kobe@qq.com', '18200932238', '1', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
@@ -203,22 +213,28 @@ INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `m
 INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('10', 'Iverson10', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '4', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
 INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('11', 'Iverson11', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '6', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
 INSERT INTO `sys_user` (`id`, `name`, `password`, `salt`, `dept_id`, `email`, `mobile`, `status`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('12', 'Iverson12', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', '15', 'iverson@qq.com', '18200932238', '1', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
+UNLOCK TABLES;
 -- --------------------------------------
 --  Records of `sys_role`
 -- --------------------------------------
+LOCK TABLES `sys_role` WRITE;
 INSERT INTO `sys_role` (`id`, `name`, `remark`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('1', 'admin', '超级管理员', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
 INSERT INTO `sys_role` (`id`, `name`, `remark`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('2', 'dev', '开发人员', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
 INSERT INTO `sys_role` (`id`, `name`, `remark`, `create_time`, `create_by`, `last_update_time`, `last_update_by`) VALUES ('3', 'test', '测试人员', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', 'admin');
+UNLOCK TABLES;
 -- --------------------------------------
 --  Records of `sys_user_role`
 -- --------------------------------------
+LOCK TABLES `sys_user_role` WRITE;
 INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('1', '1', '1');
 INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('2', '2', '1');
 INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('3', '3', '2');
 INSERT INTO `sys_user_role` (`id`, `user_id`, `role_id`) VALUES ('4', '4', '3');
+UNLOCK TABLES;
 -- --------------------------------------
 --  Records of `sys_dept`
 -- --------------------------------------
+LOCK TABLES `sys_dept` WRITE;
 INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('1', '0', '轻尘集团', '0', '0');
 INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('2', '1', '北京分公司', '1', '0');
 INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('3', '1', '上海分公司', '2', '0');
@@ -233,9 +249,11 @@ INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALU
 INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('13', '10', '宣传部', '2', '0');
 INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('14', '11', '销售部', '1', '0');
 INSERT INTO `sys_dept` (`id`, `parent_id`, `name`, `order_num`, `del_flag`) VALUES ('15', '11', '市场部', '2', '0');
+UNLOCK TABLES;
 -- --------------------------------------
 --  Records of `sys_menu`
 -- --------------------------------------
+LOCK TABLES `sys_menu` WRITE;
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('1', '0', '系统管理', NULL, NULL, '0', 'el-icon-setting', '0');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('2', '1', '用户管理', '/sys/user', NULL, '1', 'el-icon-service', '1');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('3', '1', '机构管理', '/sys/dept', NULL, '1', 'el-icon-news', '2');
@@ -271,9 +289,11 @@ INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('29', '28', '国际化', '/demo/i18n', NULL, '1', 'el-icon-edit', '1');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('30', '28', '换皮肤', '/demo/theme', NULL, '1', 'el-icon-picture', '2');
 INSERT INTO `sys_menu` (`id`, `parent_id`, `name`, `url`, `perms`, `type`, `icon`, `order_num`) VALUES ('35', '0', '接口文档', 'iframe:/swagger-ui.html', NULL, '1', 'el-icon-tickets', '10');
+UNLOCK TABLES;
 -- --------------------------------------
 --  Records of `sys_role_menu`
 -- --------------------------------------
+LOCK TABLES `sys_role_menu` WRITE;
 INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('1', '2', '25');
 INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('2', '2', '26');
 INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('3', '2', '27');
@@ -286,11 +306,12 @@ INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('9', '3', '27')
 INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('10', '3', '28');
 INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('11', '3', '29');
 INSERT INTO `sys_role_menu` (`id`, `role_id`, `menu_id`) VALUES ('12', '3', '30');
-
+UNLOCK TABLES;
 -- --------------------------------------
 --  Records of `sys_dict`
 -- --------------------------------------
+LOCK TABLES `sys_dict` WRITE;
 INSERT INTO `sys_dict` (`id`, `value`, `label`, `type`, `description`, `sort`) VALUES ('1', 'male', '男', 'sex', '男性', '0');
 INSERT INTO `sys_dict` (`id`, `value`, `label`, `type`, `description`, `sort`) VALUES ('2', 'female', '女', 'sex', '女性', '1');
-
+UNLOCK TABLES;
 

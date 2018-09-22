@@ -1,0 +1,10 @@
+# backup datasource
+spring:
+  backup:
+    datasource:
+      host: localhost
+      userName: root
+      password: 123456
+      database: kitty
+
+    
