@@ -4,9 +4,13 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+import com.louis.kitty.admin.constants.SysConstants;
 import com.louis.kitty.admin.dao.SysRoleMapper;
+import com.louis.kitty.admin.dao.SysRoleMenuMapper;
 import com.louis.kitty.admin.model.SysRole;
+import com.louis.kitty.admin.model.SysRoleMenu;
 import com.louis.kitty.admin.sevice.SysRoleService;
 import com.louis.kitty.core.page.ColumnFilter;
 import com.louis.kitty.core.page.MybatisPageHelper;
@@ -18,6 +22,8 @@ public class SysRoleServiceImpl  implements SysRoleService {
 
 	@Autowired
 	private SysRoleMapper sysRoleMapper;
+	@Autowired
+	private SysRoleMenuMapper sysRoleMenuMapper;
 
 	@Override
 	public int save(SysRole record) {
@@ -57,6 +63,38 @@ public class SysRoleServiceImpl  implements SysRoleService {
 	@Override
 	public List<SysRole> findAll() {
 		return sysRoleMapper.findAll();
+	}
+
+	public SysRoleMapper getSysRoleMapper() {
+		return sysRoleMapper;
+	}
+
+	public void setSysRoleMapper(SysRoleMapper sysRoleMapper) {
+		this.sysRoleMapper = sysRoleMapper;
+	}
+
+	@Override
+	public List<SysRoleMenu> findMenus(Long roleId) {
+		SysRole sysRole = sysRoleMapper.selectByPrimaryKey(roleId);
+		if(SysConstants.ADMIN.equalsIgnoreCase(sysRole.getName())) {
+			// 如果是超级管理员，返回全部
+			return sysRoleMenuMapper.findAll();
+		}
+		return sysRoleMenuMapper.findRoleMenus(roleId);
+	}
+
+	@Transactional
+	@Override
+	public int saveRoleMenus(List<SysRoleMenu> records) {
+		if(records == null || records.isEmpty()) {
+			return 1;
+		}
+		Long roleId = records.get(0).getRoleId(); 
+		sysRoleMenuMapper.deleteByRoleId(roleId);
+		for(SysRoleMenu record:records) {
+			sysRoleMenuMapper.insertSelective(record);
+		}
+		return 1;
 	}
 	
 }

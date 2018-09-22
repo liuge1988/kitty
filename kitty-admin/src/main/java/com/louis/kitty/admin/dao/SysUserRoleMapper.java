@@ -1,5 +1,9 @@
 package com.louis.kitty.admin.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.louis.kitty.admin.model.SysUserRole;
 
 public interface SysUserRoleMapper {
@@ -14,4 +18,8 @@ public interface SysUserRoleMapper {
     int updateByPrimaryKeySelective(SysUserRole record);
 
     int updateByPrimaryKey(SysUserRole record);
+
+	List<SysUserRole> findUserRoles(@Param(value="userId") Long userId);
+
+	int deleteByUserId(@Param(value="userId") Long userId);
 }

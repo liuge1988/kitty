@@ -28,18 +28,25 @@ public class SysUserController {
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody SysUser record) {
 		SysUser user = sysUserService.findById(record.getId());
-		if(user == null) {
-			return HttpResult.error("用户信息存在!");
-		}
-		if(SysConstants.ADMIN.equalsIgnoreCase(user.getName())) {
-			return HttpResult.error("超级管理员不允许修改!");
+		if(user != null) {
+			if(SysConstants.ADMIN.equalsIgnoreCase(user.getName())) {
+				return HttpResult.error("超级管理员不允许修改!");
+			}
 		}
 		if(record.getPassword() != null) {
-			if(!record.getPassword().equals(user.getPassword())) {
-				String salt = PasswordUtils.getSalt();
+			String salt = PasswordUtils.getSalt();
+			if(user == null) {
+				// 新增用户
 				String password = PasswordUtils.encrypte(record.getPassword(), salt);
 				record.setSalt(salt);
 				record.setPassword(password);
+			} else {
+				// 修改用户, 且修改了密码
+				if(!record.getPassword().equals(user.getPassword())) {
+					String password = PasswordUtils.encrypte(record.getPassword(), salt);
+					record.setSalt(salt);
+					record.setPassword(password);
+				}
 			}
 		}
 		return HttpResult.ok(sysUserService.save(record));
@@ -64,6 +71,11 @@ public class SysUserController {
 	@GetMapping(value="/findPermissions")
 	public HttpResult findPermissions(@RequestParam String name) {
 		return HttpResult.ok(sysUserService.findPermissions(name));
+	}
+	
+	@GetMapping(value="/findUserRoles")
+	public HttpResult findUserRoles(@RequestParam Long userId) {
+		return HttpResult.ok(sysUserService.findUserRoles(userId));
 	}
 
 	@PostMapping(value="/findPage")

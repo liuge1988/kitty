@@ -1,5 +1,9 @@
 package com.louis.kitty.admin.dao;
 
+import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
+
 import com.louis.kitty.admin.model.SysRoleMenu;
 
 public interface SysRoleMenuMapper {
@@ -14,4 +18,10 @@ public interface SysRoleMenuMapper {
     int updateByPrimaryKeySelective(SysRoleMenu record);
 
     int updateByPrimaryKey(SysRoleMenu record);
+
+	List<SysRoleMenu> findRoleMenus(@Param(value="roleId") Long roleId);
+	
+	List<SysRoleMenu> findAll();
+
+	int deleteByRoleId(@Param(value="roleId") Long roleId);
 }
