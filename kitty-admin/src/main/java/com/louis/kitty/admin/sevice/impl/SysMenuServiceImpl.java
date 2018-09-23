@@ -25,6 +25,9 @@ public class SysMenuServiceImpl implements SysMenuService {
 		if(record.getId() == null || record.getId() == 0) {
 			return sysMenuMapper.insertSelective(record);
 		}
+		if(record.getParentId() == null) {
+			record.setParentId(0L);
+		}
 		return sysMenuMapper.updateByPrimaryKeySelective(record);
 	}
 
@@ -61,6 +64,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 				sysMenus.add(menu);
 			}
 		}
+		sysMenus.sort((o1, o2) -> o1.getOrderNum().compareTo(o2.getOrderNum()));
 		findChildren(sysMenus, menus, menuType);
 		return sysMenus;
 	}
@@ -88,6 +92,7 @@ public class SysMenuServiceImpl implements SysMenuService {
 				}
 			}
 			SysMenu.setChildren(children);
+			children.sort((o1, o2) -> o1.getOrderNum().compareTo(o2.getOrderNum()));
 			findChildren(children, menus, menuType);
 		}
 	}

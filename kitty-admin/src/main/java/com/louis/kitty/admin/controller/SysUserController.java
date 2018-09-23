@@ -37,6 +37,9 @@ public class SysUserController {
 			String salt = PasswordUtils.getSalt();
 			if(user == null) {
 				// 新增用户
+				if(sysUserService.findByName(record.getName()) != null) {
+					return HttpResult.error("用户名已存在!");
+				}
 				String password = PasswordUtils.encrypte(record.getPassword(), salt);
 				record.setSalt(salt);
 				record.setPassword(password);

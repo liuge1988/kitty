@@ -143,4 +143,10 @@
     from sys_role
     where name like #{pattern}
   </select>
+  <select id="findByName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_role
+    where name = #{name,jdbcType=VARCHAR}
+  </select>
 </mapper>

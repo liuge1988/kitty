@@ -93,8 +93,9 @@ public class SysUserServiceImpl  implements SysUserService {
 		ColumnFilter columnFilter = pageRequest.getColumnFilter("name");
 		if(columnFilter != null && columnFilter.getValue() != null) {
 			pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", columnFilter.getValue());
+		} else {
+			pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 		}
-		pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 		// 加载用户角色信息
 		findUserRoles(pageResult);
 		return pageResult;

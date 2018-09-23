@@ -2,6 +2,7 @@ package com.louis.kitty.admin.sevice;
 
 import java.util.List;
 
+import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.admin.model.SysRole;
 import com.louis.kitty.admin.model.SysRoleMenu;
 import com.louis.kitty.core.service.CurdService;
@@ -18,7 +19,7 @@ public interface SysRoleService extends CurdService<SysRole> {
 	 * 查询角色菜单集合
 	 * @return
 	 */
-	List<SysRoleMenu> findMenus(Long roleId);
+	List<SysMenu> findRoleMenus(Long roleId);
 
 	/**
 	 * 保存角色菜单
@@ -26,5 +27,12 @@ public interface SysRoleService extends CurdService<SysRole> {
 	 * @return
 	 */
 	int saveRoleMenus(List<SysRoleMenu> records);
+
+	/**
+	 * 根据名称查询
+	 * @param name
+	 * @return
+	 */
+	List<SysRole> findByName(String name);
 
 }

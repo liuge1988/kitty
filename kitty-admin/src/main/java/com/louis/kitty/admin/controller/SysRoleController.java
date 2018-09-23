@@ -14,6 +14,7 @@ import com.louis.kitty.admin.constants.SysConstants;
 import com.louis.kitty.admin.dao.SysRoleMapper;
 import com.louis.kitty.admin.model.SysRole;
 import com.louis.kitty.admin.model.SysRoleMenu;
+import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.sevice.SysRoleService;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
@@ -29,6 +30,16 @@ public class SysRoleController {
 	
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody SysRole record) {
+		SysRole role = sysRoleService.findById(record.getId());
+		if(role != null) {
+			if(SysConstants.ADMIN.equalsIgnoreCase(role.getName())) {
+				return HttpResult.error("超级管理员不允许修改!");
+			}
+		}
+		// 新增角色
+		if((record.getId() == null || record.getId() ==0) && !sysRoleService.findByName(record.getName()).isEmpty()) {
+			return HttpResult.error("角色名已存在!");
+		}
 		return HttpResult.ok(sysRoleService.save(record));
 	}
 
@@ -47,9 +58,9 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.findAll());
 	}
 	
-	@GetMapping(value="/findMenus")
-	public HttpResult findRoles(@RequestParam Long roleId) {
-		return HttpResult.ok(sysRoleService.findMenus(roleId));
+	@GetMapping(value="/findRoleMenus")
+	public HttpResult findRoleMenus(@RequestParam Long roleId) {
+		return HttpResult.ok(sysRoleService.findRoleMenus(roleId));
 	}
 	
 	@PostMapping(value="/saveRoleMenus")

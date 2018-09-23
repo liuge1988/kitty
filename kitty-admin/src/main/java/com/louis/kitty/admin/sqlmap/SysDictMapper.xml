@@ -186,4 +186,10 @@
     from sys_dict
     where label like #{pattern}
   </select>
+  <select id="findByLable" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from sys_dict
+    where label = #{label,jdbcType=VARCHAR}
+  </select>
 </mapper>
