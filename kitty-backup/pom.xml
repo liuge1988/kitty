@@ -53,4 +53,21 @@
             <scope>provided</scope>
         </dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+<!-- 		<resources>
+			<resource>
+				<directory>_backup</directory>
+				<includes>
+					<include>**/*.sql</include>
+				</includes>
+				<filtering>false</filtering>
+			</resource>
+		</resources> -->
+	</build>
 </project>
