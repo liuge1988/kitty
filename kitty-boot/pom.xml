@@ -11,7 +11,7 @@
 	</parent>
 	
 	<artifactId>kitty-boot</artifactId>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>kitty-boot</name>
 	<description>kitty-boot</description>
@@ -67,6 +67,12 @@
 			<groupId>com.louis</groupId>
 			<artifactId>kitty-core</artifactId>
 		</dependency>
+		<!--TOMCAT配置-->
+		<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
+        </dependency>
 	</dependencies>
 	
 	<build>
