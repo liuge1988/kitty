@@ -1,5 +1,10 @@
 # kitty
 
+### 在线演示
+演示地址：http://139.196.87.48:9002/kitty
+
+用户名：admin 密码：admin
+
 ### 项目介绍
 
 - Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开发平台。
