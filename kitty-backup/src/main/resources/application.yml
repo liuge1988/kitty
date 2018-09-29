@@ -1,5 +1,21 @@
-# backup datasource
+# tomcat
+server:
+  port: 8002
+# spring boot admin
 spring:
+  application:
+    name: Kitty Backup Service
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8000"
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+# backup datasource
+kitty:
   backup:
     datasource:
       host: localhost

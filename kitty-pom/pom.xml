@@ -47,6 +47,8 @@
 		<module>../kitty-core</module>
 		<module>../kitty-admin</module>
 		<module>../kitty-boot</module>
+		
+		
 	</modules>
 	
 	<dependencyManagement>

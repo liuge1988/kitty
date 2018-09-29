@@ -4,9 +4,8 @@ server:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
-  port: 8088
+  port: 8001
     #context-path: /kitty-admin
-
 # DataSource
 spring:
   datasource:
@@ -31,7 +30,13 @@ spring:
       pool-prepared-statements: true
       max-open-prepared-statements: 50
       max-pool-prepared-statement-per-connection-size: 20
-
+# spring boot admin
+  application:
+    name: Kitty Admin Service
+  boot:
+    admin:
+      client:
+        url: "http://localhost:8000"
 # pagehelper   
 pagehelper:
     helperDialect: mysql

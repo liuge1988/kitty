@@ -64,7 +64,12 @@
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-spring</artifactId>
 		</dependency>
-	    <!-- kitty-common -->
+		<!--spring-boot-admin-->
+       	<dependency>
+		    <groupId>de.codecentric</groupId>
+		    <artifactId>spring-boot-admin-starter-client</artifactId>
+		    <version>2.0.0</version>
+		</dependency>
 	    <!-- kitty-core -->
 		<dependency>
 			<groupId>com.louis</groupId>
