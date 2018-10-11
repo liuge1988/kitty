@@ -141,6 +141,15 @@ kitty-ui
     通过修改src/mock/index.js中的openMock变量，可以一键开启或关闭Mock功能。
 
 
+#### 系统展示
+
+##### 登录界面
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172338_85cb9c0f_645970.png "屏幕截图.png")
+
+##### 登录界面
+
+
 ### 使用说明
 
 1. xxxx
