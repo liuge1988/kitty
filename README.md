@@ -181,6 +181,9 @@ kitty-ui
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172928_f63c7f63_645970.png "屏幕截图.png")
 
+##### 主题切换
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/173415_ef0dc20b_645970.png "屏幕截图.png")
 
 ### 使用说明
 
