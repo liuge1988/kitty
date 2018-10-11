@@ -145,9 +145,41 @@ kitty-ui
 
 ##### 登录界面
 
-![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172338_85cb9c0f_645970.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172530_fd14977c_645970.png "屏幕截图.png")
 
-##### 登录界面
+##### 用户管理
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172505_51c77c5a_645970.png "屏幕截图.png")
+
+##### 机构管理
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172625_e0e99bc7_645970.png "屏幕截图.png")
+
+##### 角色管理
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172658_1b438eb2_645970.png "屏幕截图.png")
+
+##### 菜单管理
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172716_7a5a26a9_645970.png "屏幕截图.png")
+
+##### 字典管理
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172729_4fd54dbe_645970.png "屏幕截图.png")
+
+##### 系统日志
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172747_719d67a0_645970.png "屏幕截图.png")
+
+##### 系统监控
+
+用户名：admin, 密码:admin，即服务端配置的密码
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172830_5e3e1daa_645970.png "屏幕截图.png")
+
+##### 接口文档
+
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1011/172928_f63c7f63_645970.png "屏幕截图.png")
 
 
 ### 使用说明
