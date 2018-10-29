@@ -19,7 +19,7 @@ import com.louis.kitty.admin.util.ShiroUtils;
 
 
 /**
- * 系统日志，切面处理类
+ * 系统日志，切面处理类，记录日志
  */
 @Aspect
 @Component

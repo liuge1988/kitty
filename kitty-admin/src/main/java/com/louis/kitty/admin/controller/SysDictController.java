@@ -15,6 +15,11 @@ import com.louis.kitty.admin.sevice.SysDictService;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
 
+/**
+ * 字典控制器
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @RestController
 @RequestMapping("dict")
 public class SysDictController {

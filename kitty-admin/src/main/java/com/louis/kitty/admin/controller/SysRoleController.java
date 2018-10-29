@@ -14,11 +14,15 @@ import com.louis.kitty.admin.constants.SysConstants;
 import com.louis.kitty.admin.dao.SysRoleMapper;
 import com.louis.kitty.admin.model.SysRole;
 import com.louis.kitty.admin.model.SysRoleMenu;
-import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.sevice.SysRoleService;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
 
+/**
+ * 角色控制器
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @RestController
 @RequestMapping("role")
 public class SysRoleController {

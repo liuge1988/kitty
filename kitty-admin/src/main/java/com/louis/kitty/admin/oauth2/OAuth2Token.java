@@ -1,6 +1,5 @@
 package com.louis.kitty.admin.oauth2;
 
-
 import org.apache.shiro.authc.AuthenticationToken;
 
 /**

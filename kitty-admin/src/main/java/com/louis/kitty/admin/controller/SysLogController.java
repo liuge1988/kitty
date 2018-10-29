@@ -10,6 +10,11 @@ import com.louis.kitty.admin.sevice.SysLogService;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
 
+/**
+ * 日志控制器
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @RestController
 @RequestMapping("log")
 public class SysLogController {

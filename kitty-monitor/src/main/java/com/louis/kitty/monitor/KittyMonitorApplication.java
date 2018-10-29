@@ -5,6 +5,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import de.codecentric.boot.admin.server.config.EnableAdminServer;
 
+/**
+ * 启动器
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @EnableAdminServer
 @SpringBootApplication
 public class KittyMonitorApplication {

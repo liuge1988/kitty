@@ -18,6 +18,11 @@ import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
 
+/**
+ * Druid数据源配置
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @Configuration
 @EnableConfigurationProperties({DruidDataSourceProperties.class})
 public class DruidConfig {

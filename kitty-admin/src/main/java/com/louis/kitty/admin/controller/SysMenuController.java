@@ -14,6 +14,11 @@ import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.admin.sevice.SysMenuService;
 import com.louis.kitty.core.http.HttpResult;
 
+/**
+ * 菜单控制器
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @RestController
 @RequestMapping("menu")
 public class SysMenuController {

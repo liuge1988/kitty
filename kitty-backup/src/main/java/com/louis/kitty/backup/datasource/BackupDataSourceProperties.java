@@ -3,6 +3,11 @@ package com.louis.kitty.backup.datasource;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+/**
+ * 数据源
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @Component  
 @ConfigurationProperties(prefix = "kitty.backup.datasource")  
 public class BackupDataSourceProperties {

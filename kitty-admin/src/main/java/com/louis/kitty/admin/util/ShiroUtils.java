@@ -5,8 +5,12 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 import com.louis.kitty.admin.model.SysUser;
-import com.louis.kitty.core.exception.KittyException;
 
+/**
+ * Shiro相关工具类
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 public class ShiroUtils {
 
 	public static Session getSession() {
@@ -38,13 +42,4 @@ public class ShiroUtils {
 		SecurityUtils.getSubject().logout();
 	}
 	
-	public static String getKaptcha(String key) {
-		Object kaptcha = getSessionAttribute(key);
-		if(kaptcha == null){
-			throw new KittyException("验证码已失效");
-		}
-		getSession().removeAttribute(key);
-		return kaptcha.toString();
-	}
-
 }

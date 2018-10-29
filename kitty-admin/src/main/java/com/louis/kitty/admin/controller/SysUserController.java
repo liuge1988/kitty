@@ -18,6 +18,11 @@ import com.louis.kitty.admin.util.ShiroUtils;
 import com.louis.kitty.core.http.HttpResult;
 import com.louis.kitty.core.page.PageRequest;
 
+/**
+ * 用户控制器
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 @RestController
 @RequestMapping("user")
 public class SysUserController {

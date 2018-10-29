@@ -7,6 +7,11 @@ import com.louis.kitty.admin.model.SysUser;
 import com.louis.kitty.admin.model.SysUserRole;
 import com.louis.kitty.core.service.CurdService;
 
+/**
+ * 用户管理
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 public interface SysUserService extends CurdService<SysUser> {
 
 	SysUser findByName(String username);

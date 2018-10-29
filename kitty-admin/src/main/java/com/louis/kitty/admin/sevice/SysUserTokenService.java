@@ -4,7 +4,7 @@ import com.louis.kitty.admin.model.SysUserToken;
 import com.louis.kitty.core.service.CurdService;
 
 /**
- * 用户Token
+ * 用户Token管理
  * @author Louis
  * @date Aug 21, 2018
  */

@@ -2,6 +2,11 @@ package com.louis.kitty.backup.constants;
 
 import java.io.File;
 
+/**
+ * 常量类
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 public interface BackupConstants {
 	
 	/** 备份目录 */

@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
- * IP地址
+ * IP相关工具类
  */
 public class IPUtils {
 	private static Logger logger = LoggerFactory.getLogger(IPUtils.class);

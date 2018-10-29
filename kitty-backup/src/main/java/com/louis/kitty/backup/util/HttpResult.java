@@ -1,5 +1,10 @@
 package com.louis.kitty.backup.util;
 
+/**
+ * HTTP结果封装
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 public class HttpResult {
 
 	private int code = 200;

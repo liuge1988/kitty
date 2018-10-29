@@ -5,6 +5,11 @@ import java.util.List;
 import com.louis.kitty.admin.model.SysMenu;
 import com.louis.kitty.core.service.CurdService;
 
+/**
+ * 菜单管理
+ * @author Louis
+ * @date Oct 29, 2018
+ */
 public interface SysMenuService extends CurdService<SysMenu> {
 
 	/**
