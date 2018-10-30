@@ -1,4 +1,3 @@
-# Tomcat
 server:
   tomcat:
     uri-encoding: UTF-8
@@ -30,13 +29,28 @@ spring:
       pool-prepared-statements: true
       max-open-prepared-statements: 50
       max-pool-prepared-statement-per-connection-size: 20
-# spring boot admin
+  # spring boot admin
   application:
-    name: Kitty Admin Service
+    name: kitty-admin
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: ${spring.application.name}	# 注册到consul的服务名称
   boot:
     admin:
       client:
         url: "http://localhost:8000"
+# 开放健康检查接口
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 # pagehelper   
 pagehelper:
     helperDialect: mysql

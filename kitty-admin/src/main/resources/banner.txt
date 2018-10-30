@@ -11,4 +11,4 @@
  '    \  \  \     |   /    |   /|`-' /        
 '------'  '---'   `'-'     `'-'  '..'         
          
-==== Kitty Application == Version: 1.0 ====
+===== Kitty Application === Version: 1.0 =====

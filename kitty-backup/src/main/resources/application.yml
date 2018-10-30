@@ -4,16 +4,26 @@ server:
 # spring boot admin
 spring:
   application:
-    name: Kitty Backup Service
+    name: kitty-backup
+  cloud:
+    consul:
+      host: localhost
+      port: 8500
+      discovery:
+        serviceName: ${spring.application.name}	# 注册到consul的服务名称
   boot:
     admin:
       client:
         url: "http://localhost:8000"
+# 开放健康检查接口
 management:
   endpoints:
     web:
       exposure:
         include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
 # backup datasource
 kitty:
   backup:
@@ -22,5 +32,3 @@ kitty:
       userName: root
       password: 123456
       database: kitty
-
-    
