@@ -23,6 +23,14 @@ QQ技术交流群： 429854222
 
 [Vue.js + Element UI 实现权限管理系统 前端篇](https://www.cnblogs.com/xifengxiaoma/p/9533018.html)
 
+### 分支说明
+
+- master: 主推版本分支，支持分布式，服务治理（Spring Cloud）
+
+- dev: 开发分支，适时合并到master分支，支持分布式，服务治理（Spring Cloud）
+
+- shiro: 基于Spring Boot，不包含 Spring Cloud，部署环境稍微简单一点
+
 ### 项目介绍
 
 - Kitty是基于Spring Boot、Spring Cloud、Vue、Element实现的Java快速开发平台。
@@ -119,6 +127,10 @@ kitty-ui
 
 #### 后端安装
 
+Spring Coud 分支（dev，master）使用 Consul 作为注册中心，Consul 按照教程参考：
+
+[Spring Boot + Spring Cloud 实现权限管理系统 后端篇（十八）：服务注册和发现（Consul）](https://www.cnblogs.com/xifengxiaoma/p/9857996.html)
+
 1. 下载源码
 
     git clone https://gitee.com/liuge1988/kitty.git
@@ -176,7 +188,7 @@ kitty-ui
     如果想自定义端口（默认是8090），可以修改 config/index.js 下的 port 属性。
 
     后台服务器和备份服务器地址配置在 src/utils/global.js 文件中个，按需修改。
-
+    
 #### 系统展示
 
 ##### 登录界面
