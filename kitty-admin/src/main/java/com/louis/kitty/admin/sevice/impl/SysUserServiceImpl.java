@@ -90,9 +90,14 @@ public class SysUserServiceImpl  implements SysUserService {
 	@Override
 	public PageResult findPage(PageRequest pageRequest) {
 		PageResult pageResult = null;
-		ColumnFilter columnFilter = pageRequest.getColumnFilter("name");
-		if(columnFilter != null && columnFilter.getValue() != null) {
-			pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", columnFilter.getValue());
+		String name = getColumnFilterValue(pageRequest, "name");
+		String email = getColumnFilterValue(pageRequest, "email");
+		if(name != null) {
+			if(email != null) {
+				pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByNameAndEmail", name, email);
+			} else {
+				pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper, "findPageByName", name);
+			}
 		} else {
 			pageResult = MybatisPageHelper.findPage(pageRequest, sysUserMapper);
 		}
@@ -101,6 +106,20 @@ public class SysUserServiceImpl  implements SysUserService {
 		return pageResult;
 	}
 
+	/**
+	 * 获取过滤字段的值
+	 * @param filterName
+	 * @return
+	 */
+	public String getColumnFilterValue(PageRequest pageRequest, String filterName) {
+		String value = null;
+		ColumnFilter columnFilter = pageRequest.getColumnFilter(filterName);
+		if(columnFilter != null) {
+			value = columnFilter.getValue();
+		}
+		return value;
+	}
+	
 	/**
 	 * 加载用户角色
 	 * @param pageResult
