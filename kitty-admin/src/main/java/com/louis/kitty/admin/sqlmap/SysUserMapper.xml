@@ -197,4 +197,11 @@
     select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
     where u.name like #{pattern}
   </select>
+  <select id="findPageByNameAndEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	<bind name="patternName" value="'%' + _parameter.name + '%'" />
+  	<bind name="patternEmail" value="'%' + _parameter.email + '%'" />
+    select u.*, (select d.name from sys_dept d where d.id = u.dept_id) deptName from sys_user u
+    where u.name like #{patternName}
+    and u.email like #{patternEmail}
+  </select>
 </mapper>
