@@ -28,7 +28,7 @@ public class MySqlBackupRestoreUtils {
 			// 如果目录不存在则创建
 			backupFolderFile.mkdirs();
 		}
-		if (!backupFolderPath.endsWith(File.separator) || !backupFolderPath.endsWith("/")) {
+		if (!backupFolderPath.endsWith(File.separator) && !backupFolderPath.endsWith("/")) {
 			backupFolderPath = backupFolderPath + File.separator;
 		}
 		// 拼接命令行的命令
@@ -41,7 +41,7 @@ public class MySqlBackupRestoreUtils {
 		Process process = Runtime.getRuntime().exec(getCommand(stringBuilder.toString()));
 		if (process.waitFor() == 0) {
 			// 0 表示线程正常终止
-			System.out.println("数据已经备份到 " +backupFilePath + " 文件中");
+			System.out.println("数据已经备份到 " + backupFilePath + " 文件中");
 			return true;
 		}
 		return false;
