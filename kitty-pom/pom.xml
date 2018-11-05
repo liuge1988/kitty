@@ -42,5 +42,8 @@
 		<module>../kitty-common</module>
 		<module>../kitty-core</module>
 		<module>../kitty-monitor</module>
+		<module>../kitty-consumer</module>
+		<module>../kitty-producer</module>
+		<module>../kitty-producer2</module>
 	</modules>
 </project>
