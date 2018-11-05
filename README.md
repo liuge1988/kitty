@@ -55,7 +55,7 @@ QQ技术交流群： 429854222
 - ✔ 主题切换：支持主题切换，自定主题颜色，一键换肤
 - ✔ 服务治理：集成Consul注册中心，实现服务注册和发现
 - ✔ 服务监控：集成Spring Boot Admin，实现服务监控
-- ✘ 服务消费：集成Ribbon、Feign，服务调用和负载均衡
+- ✔ 服务消费：集成Ribbon、Feign，服务调用和负载均衡
 - ✘ 服务网关：集成Spring Cloud Zuul，实现API网关
 - ✘ 服务熔断：集成Hystrix、Turbine，实现熔断和监控
 - ✘ 链路追踪：集成Sleuth、Zipkin，实现分布式链路追踪
@@ -93,6 +93,8 @@ QQ技术交流群： 429854222
 - kitty-admin： 后台管理模块，包含用户、角色、菜单管理等
 - kitty-backup： 系统数据备份备份模块，可选择独立部署
 - kitty-monitor： 系统监控服务端，监控Spring Boot服务模块
+- kitty-producer： 服务提供者示例，方便在此基础上搭建模块
+- kitty-consumer： 服务消费者示例，方便在此基础上搭建模块
 - kitty-pom： 聚合模块，仅为简化打包，一键执行打包所有模块
 
 #### 前端架构
