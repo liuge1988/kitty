@@ -56,8 +56,8 @@ QQ技术交流群： 429854222
 - ✔ 服务治理：集成Consul注册中心，实现服务注册和发现
 - ✔ 服务监控：集成Spring Boot Admin，实现服务监控
 - ✔ 服务消费：集成Ribbon、Feign，服务调用和负载均衡
-- ✘ 服务网关：集成Spring Cloud Zuul，实现API网关
-- ✘ 服务熔断：集成Hystrix、Turbine，实现熔断和监控
+- ✔ 服务熔断：集成Hystrix、Turbine，实现熔断和监控
+- ✔ 服务网关：集成Spring Cloud Zuul，实现API网关
 - ✘ 链路追踪：集成Sleuth、Zipkin，实现分布式链路追踪
 - ✘ 配置中心：集成Config、Bus，实现分布式配置中心
 - ✘ 单点登录：利用 OAuth2, 提供统一的单点登录功能
@@ -95,6 +95,8 @@ QQ技术交流群： 429854222
 - kitty-monitor： 系统监控服务端，监控Spring Boot服务模块
 - kitty-producer： 服务提供者示例，方便在此基础上搭建模块
 - kitty-consumer： 服务消费者示例，方便在此基础上搭建模块
+- kitty-hystrix： 服务熔断监控模块，收集汇总熔断统计信息
+- kitty-zuul： API服务网关模块，统一管理和转发外部调用请求
 - kitty-pom： 聚合模块，仅为简化打包，一键执行打包所有模块
 
 #### 前端架构
@@ -167,6 +169,8 @@ Spring Coud 分支（dev，master）使用 Consul 作为注册中心，Consul �
     找到 kitty-admin 工程下的 KittyAdminApplication, 执行 Java 程序，启动项目。
 
     找到 kitty-backup 工程下的 KittyBackupApplication.java, 执行 Java 程序，启动项目。
+
+    其他模块根据各自需要启动...
     
     注意：注册中心和监控服务器 monitor 要先启动，其他无所谓。
 
