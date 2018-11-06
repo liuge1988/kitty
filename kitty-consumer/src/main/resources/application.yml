@@ -22,3 +22,7 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+#开启熔断器
+feign:
+  hystrix:
+    enabled: true
