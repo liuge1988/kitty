@@ -58,7 +58,7 @@ QQ技术交流群： 429854222
 - ✔ 服务消费：集成Ribbon、Feign，服务调用和负载均衡
 - ✔ 服务熔断：集成Hystrix、Turbine，实现熔断和监控
 - ✔ 服务网关：集成Spring Cloud Zuul，实现API网关
-- ✘ 链路追踪：集成Sleuth、Zipkin，实现分布式链路追踪
+- ✔ 链路追踪：集成Sleuth、Zipkin，实现分布式链路追踪
 - ✘ 配置中心：集成Config、Bus，实现分布式配置中心
 - ✘ 单点登录：利用 OAuth2, 提供统一的单点登录功能
 - ✘ 系统登录：集成第三方登录功能（QQ、微信、微博）
@@ -88,15 +88,19 @@ QQ技术交流群： 429854222
 
 ##### 项目结构
 
-- kitty-common： 公共代码模块，主要放置工具类
+- kitty-common： 公共代码模块，主要放置一些工具类
 - kitty-core： 核心代码模块，主要封装公共业务模块
 - kitty-admin： 后台管理模块，包含用户、角色、菜单管理等
 - kitty-backup： 系统数据备份备份模块，可选择独立部署
 - kitty-monitor： 系统监控服务端，监控Spring Boot服务模块
+
 - kitty-producer： 服务提供者示例，方便在此基础上搭建模块
 - kitty-consumer： 服务消费者示例，方便在此基础上搭建模块
 - kitty-hystrix： 服务熔断监控模块，收集汇总熔断统计信息
 - kitty-zuul： API服务网关模块，统一管理和转发外部调用请求
+
+- kitty-consul： 注册中心，安装说明目录，内附安装引导说明
+- kitty-zipkin： 链路追踪，安装说明目录，内附安装引导说明
 - kitty-pom： 聚合模块，仅为简化打包，一键执行打包所有模块
 
 #### 前端架构
@@ -129,14 +133,9 @@ kitty-ui
 - utils： 工具模块，提供一些通用的工具方法
 - views： 页面模块，主要放置各种页面视图组件
 
-
 ### 安装教程
 
 #### 后端安装
-
-Spring Coud 分支（dev，master）使用 Consul 作为注册中心，Consul 安装教程参考：
-
-[Spring Boot + Spring Cloud 实现权限管理系统 后端篇（十八）：服务注册和发现（Consul）](https://www.cnblogs.com/xifengxiaoma/p/9857996.html)
 
 1. 下载源码
 
@@ -162,7 +161,9 @@ Spring Coud 分支（dev，master）使用 Consul 作为注册中心，Consul �
 
 5. 启动系统
     
-    找到 Consul 注册中心安装目录，执行 consul agent -dev 启动注册中心，不了解请先百度。
+    找到 kitty-consul 工程，根据安装说明安装注册中心，完成后执行consul agent -dev启动。
+
+    找到 kitty-zipkin 工程，根据安装说明安装zipkin，如果不需要链路追踪服务的可以不用。
 
     找到 kitty-monitor 工程下的 KittyMonitorApplication, 执行 Java 程序，启动项目。
 
@@ -170,9 +171,7 @@ Spring Coud 分支（dev，master）使用 Consul 作为注册中心，Consul �
 
     找到 kitty-backup 工程下的 KittyBackupApplication.java, 执行 Java 程序，启动项目。
 
-    其他模块根据各自需要启动...
-    
-    注意：注册中心和监控服务器 monitor 要先启动，其他无所谓。
+    其他模块根据各自需要选择性启动...
 
 #### 前端安装
 
