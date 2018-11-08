@@ -3,12 +3,6 @@ server:
 spring:
   application:
     name: kitty-consumer
-  cloud:
-    consul:
-      host: localhost
-      port: 8500
-      discovery:
-        serviceName: ${spring.application.name}	# 注册到consul的服务名称
   boot:
     admin:
       client:

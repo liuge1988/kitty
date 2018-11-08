@@ -73,10 +73,20 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-openfeign</artifactId>
 		</dependency>
-		<!-- 分布式链路追踪 -->
+		<!-- zipkin -->
 		<dependency>
 		    <groupId>org.springframework.cloud</groupId>
 		    <artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
+		<!-- spring-cloud-config -->
+        <dependency>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-config</artifactId>
+        </dependency>
+        <!-- bus-amqp -->
+        <dependency>
+		    <groupId>org.springframework.cloud</groupId>
+		    <artifactId>spring-cloud-starter-bus-amqp</artifactId>
 		</dependency>
 	    <!--test-->
 	    <dependency>
