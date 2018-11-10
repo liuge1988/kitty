@@ -1,0 +1,53 @@
+package ${table.serviceImplPackageName};
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.louis.kitty.core.page.MybatisPageHelper;
+import com.louis.kitty.core.page.PageRequest;
+import com.louis.kitty.core.page.PageResult;
+
+import ${table.modelPackageName}.${table.className};
+import ${table.daoPackageName}.${table.className}Mapper;
+import ${table.servicePackageName}.${table.className}Service;
+
+@Service
+public class ${table.className}ServiceImpl implements ${table.className}Service {
+
+	@Autowired
+	private ${table.className}Mapper ${table.objectName}Mapper;
+
+	@Override
+	public int save(${table.className} record) {
+		if(record.getId() == null || record.getId() == 0) {
+			return ${table.objectName}Mapper.add(record);
+		}
+		return ${table.objectName}Mapper.update(record);
+	}
+
+	@Override
+	public int delete(${table.className} record) {
+		return ${table.objectName}Mapper.delete(record.getId());
+	}
+
+	@Override
+	public int delete(List<${table.className}> records) {
+		for(${table.className} record:records) {
+			delete(record);
+		}
+		return 1;
+	}
+
+	@Override
+	public ${table.className} findById(${table.primaryKey.javaType} id) {
+		return ${table.objectName}Mapper.findById(id);
+	}
+
+	@Override
+	public PageResult findPage(PageRequest pageRequest) {
+		return MybatisPageHelper.findPage(pageRequest, ${table.objectName}Mapper);
+	}
+	
+}

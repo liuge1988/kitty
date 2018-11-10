@@ -1,0 +1,8 @@
+package ${table.servicePackageName};
+
+import ${table.modelPackageName}.${table.className};
+import com.louis.kitty.core.service.CurdService;
+
+public interface ${table.className}Service extends CurdService<${table.className}> {
+
+}

@@ -1,0 +1,19 @@
+package ${table.daoPackageName};
+
+import java.util.List;
+
+import ${table.modelPackageName}.${table.className};
+
+public interface ${table.className}Mapper {
+
+    int add(${table.className} record);
+
+    int delete(${table.primaryKey.javaType} ${table.primaryKey.fieldName});
+    
+    int update(${table.className} record);
+    
+    ${table.className} findById(${table.primaryKey.javaType} ${table.primaryKey.fieldName});
+    
+    List<${table.className}> findPage();
+    
+}

@@ -1,0 +1,27 @@
+package ${table.modelPackageName};
+
+public class ${table.className} {
+
+<%
+	for(column in table.columns) {
+%>	
+	private ${column.javaType} ${column.fieldName};
+<%
+	}
+%>
+
+<%
+	for(column in table.columns) {
+%>	
+	public ${column.javaType} ${column.getter}() {
+		return ${column.fieldName};
+	}
+
+	public void ${column.setter}(${column.javaType} ${column.fieldName}) {
+		this.${column.fieldName} = ${column.fieldName};
+	}
+
+<%
+	}
+%>
+}
