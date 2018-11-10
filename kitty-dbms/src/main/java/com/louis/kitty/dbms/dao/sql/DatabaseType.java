@@ -16,7 +16,7 @@ public enum DatabaseType {
 
 		@Override
 		public String getFileName() {
-			return FOLDER + "/sql/Oracle.xml";
+			return FOLDER + "/Oracle.xml";
 		}
 
 		@Override
@@ -29,7 +29,7 @@ public enum DatabaseType {
 	MySql5 {
 		@Override
 		public String getFileName() {
-			return FOLDER + "/sql/MySQL5.xml";
+			return FOLDER + "/MySQL5.xml";
 		}
 
 		@Override
@@ -41,7 +41,7 @@ public enum DatabaseType {
 	MSSQLServer {
 		@Override
 		public String getFileName() {
-			return FOLDER + "/sql/MSSQL.xml";
+			return FOLDER + "/MSSQL.xml";
 		}
 	};
 	

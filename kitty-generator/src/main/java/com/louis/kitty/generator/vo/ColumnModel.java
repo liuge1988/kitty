@@ -11,6 +11,8 @@ public class ColumnModel {
 	private String fieldName;
 	/** Java类型 */
 	private String javaType;
+	/** jdbc类型 */
+	private String jdbcType;
 	/** 是否主键 */
 	private boolean isPrimaryKey;
 	/** getter名称 */
@@ -45,6 +47,12 @@ public class ColumnModel {
 	}
 	public void setJavaType(String javaType) {
 		this.javaType = javaType;
+	}
+	public String getJdbcType() {
+		return jdbcType;
+	}
+	public void setJdbcType(String jdbcType) {
+		this.jdbcType = jdbcType;
 	}
 	public boolean isPrimaryKey() {
 		return isPrimaryKey;

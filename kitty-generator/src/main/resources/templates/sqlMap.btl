@@ -7,11 +7,11 @@
 	for(column in table.columns) {
 		if(column.isPrimaryKey) {
 %>	
-	<id column="${column.name}" jdbcType="${column.dataType}" property="${column.fieldName}" />
+	<id column="${column.name}" jdbcType="${column.jdbcType}" property="${column.fieldName}" />
 <%
 		} else {
 %>
-	<result column="${column.name}" jdbcType="${column.dataType}" property="${column.fieldName}" />
+	<result column="${column.name}" jdbcType="${column.jdbcType}" property="${column.fieldName}" />
 <%
 		}
 	}
@@ -36,7 +36,7 @@
 	for(column in table.columns) {
 %>	       
       <if test="${column.fieldName} != null">
-        #{${column.fieldName},jdbcType=${column.dataType}},
+        #{${column.fieldName},jdbcType=${column.jdbcType}},
       </if>
 <%
 	}
@@ -46,7 +46,7 @@
 
   <delete id="delete" parameterType="java.lang.${table.primaryKey.javaType}">
     delete from ${table.name}
-    where ${table.primaryKey.name} = #{${table.primaryKey.fieldName},jdbcType=${table.primaryKey.dataType}}
+    where ${table.primaryKey.name} = #{${table.primaryKey.fieldName},jdbcType=${table.primaryKey.jdbcType}}
   </delete>
   
   <update id="update" parameterType="${table.modelPackageName}.${table.className}">
@@ -56,18 +56,18 @@
 	for(column in table.columns) {
 %>	       
       <if test="${column.fieldName} != null">
-        ${column.name} = #{${column.fieldName},jdbcType=${column.dataType}},
+        ${column.name} = #{${column.fieldName},jdbcType=${column.jdbcType}},
       </if>
 <%
 	}
 %>   
     </set>
-    where ${table.primaryKey.name} = #{${table.primaryKey.fieldName},jdbcType=${table.primaryKey.dataType}}
+    where ${table.primaryKey.name} = #{${table.primaryKey.fieldName},jdbcType=${table.primaryKey.jdbcType}}
   </update>
 
   <select id="findById" parameterType="java.lang.${table.primaryKey.javaType}" resultMap="BaseResultMap">
     select * from ${table.name}
-    where ${table.primaryKey.name} = #{${table.primaryKey.fieldName},jdbcType=${table.primaryKey.dataType}}
+    where ${table.primaryKey.name} = #{${table.primaryKey.fieldName},jdbcType=${table.primaryKey.jdbcType}}
   </select>
   
   <select id="findPage" resultMap="BaseResultMap">

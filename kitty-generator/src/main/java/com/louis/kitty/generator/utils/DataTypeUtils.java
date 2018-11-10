@@ -32,7 +32,10 @@ public class DataTypeUtils {
 	public static final String BOOLEAN = "BOOL";
 	public static final String DATE = "DATE";
 	public static final String TIME = "TIME";
-
+	
+	public static final String INTEGER = "INTEGER";
+	public static final String TIMESTAMP = "TIMESTAMP";
+	  
 	/**
 	 * 根据数据库类型获取对应的JAVA类型
 	 * @param dataType
@@ -59,6 +62,21 @@ public class DataTypeUtils {
 			}
 		}
 		return javaType;
+	}
+	
+	/**
+	 * 根据数据库类型获取对应JdbcType
+	 * @param dataType
+	 * @return
+	 */
+	public static String getJdbcType(String dataType) {
+		String jdbcType = dataType.toUpperCase();
+		if (jdbcType.equalsIgnoreCase(INT)) {
+			jdbcType = INTEGER;
+		} else if(dataType.contains(DATE)) {
+			jdbcType = TIMESTAMP;
+		}
+		return jdbcType;
 	}
 
 }

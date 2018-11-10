@@ -106,6 +106,8 @@ public class GenerateServiceImpl implements GenerateService {
 			// 设置JAVA数据类型
 			String javaType = DataTypeUtils.getJavaType(columnModel.getDataType());
 			columnModel.setJavaType(javaType);
+			String jdbcType = DataTypeUtils.getJdbcType(columnModel.getDataType());
+			columnModel.setJdbcType(jdbcType);
 			// 设置属性是否为主键
 			for(PrimaryKey primaryKey:primaryKeys) {
 				if(column.getName().equalsIgnoreCase(primaryKey.getCloumn())) {
