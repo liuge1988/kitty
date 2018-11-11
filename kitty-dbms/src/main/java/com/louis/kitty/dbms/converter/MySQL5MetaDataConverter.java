@@ -33,8 +33,6 @@ public class MySQL5MetaDataConverter extends CommonMetaDataConverter {
         int endIndex = desc.lastIndexOf(";");
         if (endIndex != -1) {
             desc = desc.substring(0, endIndex);
-        } else {
-            desc = null;
         }
         table.setDescription(desc);
         return table;

@@ -16,31 +16,59 @@ import com.louis.kitty.core.page.PageRequest;
 import ${table.modelPackageName}.${table.className};
 import ${table.servicePackageName}.${table.className}Service;
 
+/**
+ * ---------------------------
+ * ${table.description} (${table.className}Controller)         
+ * ---------------------------
+ * 作者：  kitty-generator
+ * 时间：  ${strutil.formatDate(date(),'yyyy-MM-dd HH:mm:ss')}
+ * 说明：  我是由代码生成器生生成的
+ * ---------------------------
+ */
 @RestController
 @RequestMapping("${table.objectName}")
 public class ${table.className}Controller {
 
 	@Autowired
 	private ${table.className}Service ${table.objectName}Service;
-	
+
+	/**
+	 * 保存${table.description}
+	 * @param record
+	 * @return
+	 */	
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody ${table.className} record) {
 		return HttpResult.ok(${table.objectName}Service.save(record));
 	}
 
+    /**
+     * 删除${table.description}
+     * @param records
+     * @return
+     */
 	@PostMapping(value="/delete")
 	public HttpResult delete(@RequestBody List<${table.className}> records) {
 		return HttpResult.ok(${table.objectName}Service.delete(records));
 	}
 
+    /**
+     * 基础分页查询
+     * @param pageRequest
+     * @return
+     */    
 	@PostMapping(value="/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(${table.objectName}Service.findPage(pageRequest));
 	}
 	
-	
+    /**
+     * 根据主键查询
+     * @param ${table.primaryKey.fieldName}
+     * @return
+     */ 	
 	@GetMapping(value="/findById")
-	public HttpResult findById(@RequestParam ${table.primaryKey.javaType} id) {
-		return HttpResult.ok(${table.objectName}Service.findById(id));
+	public HttpResult findById(@RequestParam ${table.primaryKey.javaType} ${table.primaryKey.fieldName}) {
+		return HttpResult.ok(${table.objectName}Service.findById(${table.primaryKey.fieldName}));
 	}
 }

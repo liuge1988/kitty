@@ -4,16 +4,50 @@ import java.util.List;
 
 import ${table.modelPackageName}.${table.className};
 
+/**
+ * ---------------------------
+ * ${table.description} (${table.className}Mapper)         
+ * ---------------------------
+ * 作者：  kitty-generator
+ * 时间：  ${strutil.formatDate(date(),'yyyy-MM-dd HH:mm:ss')}
+ * 说明：  我是由代码生成器生生成的
+ * ---------------------------
+ */
 public interface ${table.className}Mapper {
 
+	/**
+	 * 添加${table.description}
+	 * @param record
+	 * @return
+	 */
     int add(${table.className} record);
 
+    /**
+     * 删除${table.description}
+     * @param ${table.primaryKey.fieldName}
+     * @return
+     */
     int delete(${table.primaryKey.javaType} ${table.primaryKey.fieldName});
     
+    /**
+     * 修改${table.description}
+     * @param record
+     * @return
+     */
     int update(${table.className} record);
     
+    /**
+     * 根据主键查询
+     * @param ${table.primaryKey.fieldName}
+     * @return
+     */    
     ${table.className} findById(${table.primaryKey.javaType} ${table.primaryKey.fieldName});
-    
+
+    /**
+     * 基础分页查询
+     * @param record
+     * @return
+     */    
     List<${table.className}> findPage();
     
 }
