@@ -65,6 +65,13 @@ QQ技术交流群： 429854222
 - ✘ 代码生成：提供代码生成器，最大化的降低代码开发量
 - ...
 
+### 代码生成器
+
+代码生成器放在独立项目，地址如下：
+
+[https://gitee.com/liuge1988/kitty-generator](https://gitee.com/liuge1988/kitty-generator)
+
+
 ### 软件架构
 
 #### 后端架构
