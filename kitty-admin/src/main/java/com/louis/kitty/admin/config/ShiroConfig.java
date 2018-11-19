@@ -8,10 +8,14 @@ import javax.servlet.Filter;
 
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.realm.Realm;
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
+import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
+import org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import com.louis.kitty.admin.oauth2.OAuth2Filter;
 import com.louis.kitty.admin.oauth2.OAuth2Realm;
@@ -56,16 +60,43 @@ public class ShiroConfig {
 	}
 
     @Bean
+	public SecurityManager securityManager(){
+	    DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
+	    // 注入 Realm 实现类，实现自己的登录逻辑
+	    securityManager.setRealm(getShiroRealm());
+	    return securityManager;
+	}
+
+	@Bean
     public Realm getShiroRealm(){
     	OAuth2Realm myShiroRealm = new OAuth2Realm();
         return myShiroRealm;
     }
+	
+    /**
+     * Shiro生命周期处理器
+     */
+    @Bean
+    public LifecycleBeanPostProcessor lifecycleBeanPostProcessor() {
+        return new LifecycleBeanPostProcessor();
+    }
+    
+    /**
+     * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
+     * 配置以下两个bean(DefaultAdvisorAutoProxyCreator(可选)和AuthorizationAttributeSourceAdvisor)即可实现此功能
+     */
+    @Bean
+    @DependsOn({"lifecycleBeanPostProcessor"})
+    public DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator() {
+        DefaultAdvisorAutoProxyCreator advisorAutoProxyCreator = new DefaultAdvisorAutoProxyCreator();
+        advisorAutoProxyCreator.setProxyTargetClass(true);
+        return advisorAutoProxyCreator;
+    }
 
     @Bean
-    public SecurityManager securityManager(){
-        DefaultWebSecurityManager securityManager =  new DefaultWebSecurityManager();
-        // 注入 Realm 实现类，实现自己的登录逻辑
-        securityManager.setRealm(getShiroRealm());
-        return securityManager;
+    public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor() {
+        AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = new AuthorizationAttributeSourceAdvisor();
+        authorizationAttributeSourceAdvisor.setSecurityManager(securityManager());
+        return authorizationAttributeSourceAdvisor;
     }
 }

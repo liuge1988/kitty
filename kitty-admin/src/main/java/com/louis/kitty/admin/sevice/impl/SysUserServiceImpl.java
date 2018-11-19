@@ -155,7 +155,9 @@ public class SysUserServiceImpl  implements SysUserService {
 		Set<String> perms = new HashSet<>();
 		List<SysMenu> sysMenus = sysMenuService.findByUser(userName);
 		for(SysMenu sysMenu:sysMenus) {
-			perms.add(sysMenu.getPerms());
+			if(sysMenu.getPerms() != null && !"".equals(sysMenu.getPerms())) {
+				perms.add(sysMenu.getPerms());
+			}
 		}
 		return perms;
 	}
