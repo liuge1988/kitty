@@ -61,7 +61,9 @@ public class SysMenuServiceImpl implements SysMenuService {
 		for (SysMenu menu : menus) {
 			if (menu.getParentId() == null || menu.getParentId() == 0) {
 				menu.setLevel(0);
-				sysMenus.add(menu);
+				if(!exists(sysMenus, menu)) {
+					sysMenus.add(menu);
+				}
 			}
 		}
 		sysMenus.sort((o1, o2) -> o1.getOrderNum().compareTo(o2.getOrderNum()));
@@ -88,13 +90,25 @@ public class SysMenuServiceImpl implements SysMenuService {
 				if (SysMenu.getId() != null && SysMenu.getId().equals(menu.getParentId())) {
 					menu.setParentName(SysMenu.getName());
 					menu.setLevel(SysMenu.getLevel() + 1);
-					children.add(menu);
+					if(!exists(children, menu)) {
+						children.add(menu);
+					}
 				}
 			}
 			SysMenu.setChildren(children);
 			children.sort((o1, o2) -> o1.getOrderNum().compareTo(o2.getOrderNum()));
 			findChildren(children, menus, menuType);
 		}
+	}
+
+	private boolean exists(List<SysMenu> sysMenus, SysMenu sysMenu) {
+		boolean exist = false;
+		for(SysMenu menu:sysMenus) {
+			if(menu.getId().equals(sysMenu.getId())) {
+				exist = true;
+			}
+		}
+		return exist;
 	}
 	
 }

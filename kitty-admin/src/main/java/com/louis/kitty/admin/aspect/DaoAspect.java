@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
-import com.louis.kitty.admin.util.ShiroUtils;
+import com.louis.kitty.admin.util.SecurityUtils;
 import com.louis.kitty.common.utils.StringUtils;
 
 /**
@@ -87,6 +87,6 @@ public class DaoAspect {
 	}
 
 	private String getUserName() {
-		return ShiroUtils.getUser() == null ? null : ShiroUtils.getUser().getName();
+		return SecurityUtils.getUsername();
 	}
 }

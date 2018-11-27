@@ -2,8 +2,8 @@ package com.louis.kitty.admin.controller;
 
 import java.util.List;
 
-import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,7 +33,7 @@ public class SysRoleController {
 	@Autowired
 	private SysRoleMapper sysRoleMapper;
 	
-	@RequiresPermissions({"sys:role:add", "sys:role:edit"})
+	@PreAuthorize("hasAuthority('sys:role:add') AND hasAuthority('sys:role:edit')")
 	@PostMapping(value="/save")
 	public HttpResult save(@RequestBody SysRole record) {
 		SysRole role = sysRoleService.findById(record.getId());
@@ -49,31 +49,31 @@ public class SysRoleController {
 		return HttpResult.ok(sysRoleService.save(record));
 	}
 
-	@RequiresPermissions("sys:role:delete")
+	@PreAuthorize("hasAuthority('sys:role:delete')")
 	@PostMapping(value="/delete")
 	public HttpResult delete(@RequestBody List<SysRole> records) {
 		return HttpResult.ok(sysRoleService.delete(records));
 	}
 
-	@RequiresPermissions("sys:role:view")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@PostMapping(value="/findPage")
 	public HttpResult findPage(@RequestBody PageRequest pageRequest) {
 		return HttpResult.ok(sysRoleService.findPage(pageRequest));
 	}
 	
-	@RequiresPermissions("sys:role:view")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@GetMapping(value="/findAll")
 	public HttpResult findAll() {
 		return HttpResult.ok(sysRoleService.findAll());
 	}
 	
-	@RequiresPermissions("sys:role:view")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@GetMapping(value="/findRoleMenus")
 	public HttpResult findRoleMenus(@RequestParam Long roleId) {
 		return HttpResult.ok(sysRoleService.findRoleMenus(roleId));
 	}
 	
-	@RequiresPermissions("sys:role:view")
+	@PreAuthorize("hasAuthority('sys:role:view')")
 	@PostMapping(value="/saveRoleMenus")
 	public HttpResult saveRoleMenus(@RequestBody List<SysRoleMenu> records) {
 		for(SysRoleMenu record:records) {
