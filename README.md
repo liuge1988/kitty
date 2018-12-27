@@ -228,7 +228,7 @@ kitty-ui
 
 #### 登录界面
 
-![输入图片说明](https://images.gitee.com/uploads/images/2018/1227/154316_d41b0e86_645970.png "屏幕截图.png")
+![输入图片说明](https://images.gitee.com/uploads/images/2018/1227/155412_c2f72f83_645970.png "屏幕截图.png")
 
 #### 用户管理
 
@@ -254,7 +254,7 @@ kitty-ui
 
 ![输入图片说明](https://images.gitee.com/uploads/images/2018/1227/154510_3c1bfd3f_645970.png "屏幕截图.png")
 
-#### 系统监控
+#### 数据监控
 
 用户名：admin, 密码:admin，即服务端配置的密码
 
