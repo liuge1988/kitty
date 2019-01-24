@@ -991,18 +991,18 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', '9ec9750e709431dad22365cabc5c625482e574c74adaebba7dd02f1129e4ce1d', 'YzcmCZNvbXocrsz9dm8e', 'admin@qq.com', '13612345678', '1', '4', 'admin', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', '0');
-INSERT INTO `sys_user` VALUES ('22', '刘备', '3e2837c71ed7013809bda296e94c1e3141a47c17efe5c95d887ea7e16e4ed8df', '5749c68caf394f50ad79', 'test@qq.com', '13889700023', '1', '34', 'admin', '2018-09-23 19:43:00', 'admin', '2018-11-04 10:12:45', '0');
-INSERT INTO `sys_user` VALUES ('23', '赵云', '7388da1b788173de33cd60023e72b048fe166fd59658eb0829bc92b662fe84b6', 'ba301cfff37c4f4294b1', 'test@qq.com', '13889700023', '1', '34', 'admin', '2018-09-23 19:43:44', 'admin', '2018-09-23 19:43:52', '0');
-INSERT INTO `sys_user` VALUES ('24', '诸葛亮', '03598a9d3ca0175b9652267a475b7b49a589a35bb25c5830e3d02c460f344991', '7f31d587bd1a4ba6b28c', 'test@qq.com', '13889700023', '1', '34', 'admin', '2018-09-23 19:44:23', 'admin', '2018-09-23 19:44:29', '0');
-INSERT INTO `sys_user` VALUES ('25', '曹操', '1759880c5a2ea94967db4f5e7a82152cadf831c45c0d1f32af0e939eeb943255', 'b2cb4778302b486cb846', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:45:32', 'admin', '2018-09-23 19:45:37', '0');
-INSERT INTO `sys_user` VALUES ('26', '典韦', 'c21cd657efcf9fff6e936155246ec3b3d0dc8051941c2edd80871652950919a7', 'cd0bd6d773314062a743', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:45:48', 'admin', '2018-09-23 19:45:57', '0');
-INSERT INTO `sys_user` VALUES ('27', '夏侯惇', '074f481a029c23fe655bb0a5ca80d4f46239bc7ad6aa1538c00dc32f6185db15', '68024ab4050f423d9eaf', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:46:09', 'admin', '2018-09-23 19:46:17', '0');
-INSERT INTO `sys_user` VALUES ('28', '荀彧', '74361a718a9a6fa498362d3499c52c7446b1d8eaf2e1babef6bb88257eb7f710', 'fef1f3b8cc674e5a854d', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:46:38', 'admin', '2018-11-04 15:33:17', '0');
-INSERT INTO `sys_user` VALUES ('29', '孙权', 'e12430482e68dcbffabbc9591e0b6a22c8609fa297c54311543173f200755bda', '2f4300ded4294bb7bdf9', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:46:54', 'admin', '2018-09-23 19:47:03', '0');
-INSERT INTO `sys_user` VALUES ('30', '周瑜', '5de59dabc6e3ea9e8ed0adec59b84ae5df6c1843702242854cb13bebc176f7dd', '33f508fae431405da24d', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:47:28', 'admin', '2018-09-23 19:48:04', '0');
-INSERT INTO `sys_user` VALUES ('31', '陆逊', '8f23cd3ba3602b4044c57853d73a9e559e19a8b09b38ba4878215b28a09df1e5', 'e4a2451603e04012ac24', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:47:44', 'admin', '2018-09-23 19:47:58', '0');
-INSERT INTO `sys_user` VALUES ('32', '黄盖', 'd0914e18fe84a03149f5a293156e85ef5151327610bc9c48a2d66d4a9025b226', '754d3457dc094c45b51a', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:48:38', 'admin', '2018-09-23 19:49:02', '0');
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'bd1718f058d8a02468134432b8656a86', 'YzcmCZNvbXocrsz9dm8e', 'admin@qq.com', '13612345678', '1', '4', 'admin', '2018-08-14 11:11:11', 'admin', '2018-08-14 11:11:11', '0');
+INSERT INTO `sys_user` VALUES ('22', '刘备', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '34', 'admin', '2018-09-23 19:43:00', 'admin', '2018-11-04 10:12:45', '0');
+INSERT INTO `sys_user` VALUES ('23', '赵云', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '34', 'admin', '2018-09-23 19:43:44', 'admin', '2018-09-23 19:43:52', '0');
+INSERT INTO `sys_user` VALUES ('24', '诸葛亮', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '34', 'admin', '2018-09-23 19:44:23', 'admin', '2018-09-23 19:44:29', '0');
+INSERT INTO `sys_user` VALUES ('25', '曹操', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:45:32', 'admin', '2018-09-23 19:45:37', '0');
+INSERT INTO `sys_user` VALUES ('26', '典韦', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:45:48', 'admin', '2018-09-23 19:45:57', '0');
+INSERT INTO `sys_user` VALUES ('27', '夏侯惇', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:46:09', 'admin', '2018-09-23 19:46:17', '0');
+INSERT INTO `sys_user` VALUES ('28', '荀彧', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '33', 'admin', '2018-09-23 19:46:38', 'admin', '2018-11-04 15:33:17', '0');
+INSERT INTO `sys_user` VALUES ('29', '孙权', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:46:54', 'admin', '2018-09-23 19:47:03', '0');
+INSERT INTO `sys_user` VALUES ('30', '周瑜', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:47:28', 'admin', '2018-09-23 19:48:04', '0');
+INSERT INTO `sys_user` VALUES ('31', '陆逊', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:47:44', 'admin', '2018-09-23 19:47:58', '0');
+INSERT INTO `sys_user` VALUES ('32', '黄盖', 'fd80ebd493a655608dc893a9f897d845', 'YzcmCZNvbXocrsz9dm8e', 'test@qq.com', '13889700023', '1', '35', 'admin', '2018-09-23 19:48:38', 'admin', '2018-09-23 19:49:02', '0');
 
 -- ----------------------------
 -- Table structure for sys_user_role
